@@ -59,6 +59,8 @@ It's really [nothing fancy](https://github.com/kitze/twizzy-landing/blob/master/
 
 - `whenTheme` - It applies style only when the certain theme name is active. Exapmle: `whenTheme('dark', {backgroundColor: 'black})`
 - `applyTheme` - It applies certain theme styles to the element. Example: `applyTheme('windowBar')` will get the `theme.windowBar` styles from the current theme
+- `getThemeColor` - It reads a certain color from the current theme. Example: `getThemeColor('icon')` will return the icon color for the current theme.
+
 
 ## ⁉️ AMA
 
