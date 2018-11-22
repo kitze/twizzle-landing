@@ -16,13 +16,13 @@ import * as A from 'styles/shared-components';
 //components
 import { PoseGroup } from 'react-pose';
 
-function Messages({ messagesPose, fabPose }) {
+function Messages({ messagesPose, fabPose, onToggleNight }) {
   return (
     <S.Messages>
       <S.Bar>
         <S.Title> Messages </S.Title>
         <A.Horizontal spaceAll={10}>
-          <S.Icon icon={faMoon} />
+          <S.Icon icon={faMoon} onClick={onToggleNight} style={{ cursor: 'pointer' }} />
           <S.Icon icon={faBars} />
           <S.Icon icon={faCog} />
         </A.Horizontal>
