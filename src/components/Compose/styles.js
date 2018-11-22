@@ -119,6 +119,7 @@ export const Input = emotion.textarea(
     backgroundColor: '#192530',
     padding: 10,
     border: 'none',
+    outline: 'none',
     minHeight: 105,
     width: '100%',
     color: 'white',
