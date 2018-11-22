@@ -39,17 +39,15 @@ export const Overlay = emotion(
     enter: { opacity: 1 },
     exit: { opacity: 0 }
   })
-)(
-  {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    ...zIndexFor(ELEMENTS.OVERLAY),
-    height: '100vh',
-    width: '100vw'
-  }
-);
+)({
+  backgroundColor: 'rgba(0, 0, 0, 0.7)',
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  ...zIndexFor(ELEMENTS.OVERLAY),
+  height: '100vh',
+  width: '100vw'
+});
 
 export const OverLimitText = emotion.div({
   color: '#e0245d',
@@ -93,7 +91,6 @@ export const Tweet = emotion.button(
     height: 15,
     padding: 15,
     border: 'none',
-    outline: 'none',
     transition: 'all 100ms linear'
   },
   when(
@@ -122,7 +119,6 @@ export const Input = emotion.textarea(
     backgroundColor: '#192530',
     padding: 10,
     border: 'none',
-    outline: 'none',
     minHeight: 105,
     width: '100%',
     color: 'white',

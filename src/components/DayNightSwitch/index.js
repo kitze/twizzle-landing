@@ -10,7 +10,16 @@ import * as S from './styles';
 function DayNightSwitch({ value, onChange }) {
   return (
     <ThemeProvider theme={{ clicked: value }}>
-      <S.DayNightSwitch onClick={onChange}>
+      <S.DayNightSwitch
+        onClick={onChange}
+        role="button"
+        tabIndex={0}
+        onKeyPress={e => {
+          if (e.which === 13) {
+            onChange(e);
+          }
+        }}
+      >
         <S.Stars>
           <S.Star index={1} size={2} x={10} y={3} />
           <S.Star index={2} size={1} x={3} y={7} />

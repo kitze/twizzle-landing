@@ -19,7 +19,6 @@ const confettiConfig = {
 };
 
 function ToggleCount({ count, onTweet }) {
-
   const initialLimit = count >= 5;
   const text = getText(count, initialLimit);
 
@@ -34,7 +33,6 @@ function ToggleCount({ count, onTweet }) {
     [count]
   );
 
-
   return (
     initialLimit && (
       <S.ToggleCount>
@@ -47,7 +45,19 @@ function ToggleCount({ count, onTweet }) {
         </div>
         <br />
         <div>
-          <Hover onClick={onTweet}> Tweet progress </Hover>
+          <Hover
+            onClick={onTweet}
+            role="button"
+            tabIndex={0}
+            onKeyPress={e => {
+              if (e.which === 13) {
+                onTweet(e);
+              }
+            }}
+          >
+            {' '}
+            Tweet progress{' '}
+          </Hover>
         </div>
       </S.ToggleCount>
     )

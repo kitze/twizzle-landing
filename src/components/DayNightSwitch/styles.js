@@ -12,7 +12,6 @@ export const DayNightSwitch = emotion.div(
   {
     ...flex.horizontal,
     ...flex.centerHorizontalV,
-    outline: 'none',
     position: 'relative',
     height: 35,
     width,

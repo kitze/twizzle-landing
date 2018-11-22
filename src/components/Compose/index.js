@@ -15,13 +15,29 @@ import bars from '../../icons/bars.svg';
 
 function Compose({ visible, text, onMouseLeave, onMouseOver, setText, composeIsOpen, setComposeOpen }) {
   const tweet = () => window.open(`http://twitter.com/share?text=${text}&url=https://twizzy.app`);
+  const alertForImage = () => alert('You can add images and gifs from the real app 😜️');
+  const alertForPolls = () => alert('You can attach polls from the real app 😜️');
   const remaining = 240 - text.length;
   const overLimit = remaining < 0;
 
   const compose = (
     <S.Compose onMouseOver={onMouseOver} onMouseLeave={onMouseLeave} visible={visible} className="compose">
       <S.Bar>
-        <S.Tweet disabled={text.trim() === '' || overLimit} onClick={tweet}>
+        <S.Tweet
+          disabled={text.trim() === '' || overLimit || !visible}
+          onClick={tweet}
+          {...(visible
+            ? {
+                role: 'button',
+                tabIndex: 0,
+                onKeyPress: e => {
+                  if (e.which === 13) {
+                    tweet(e);
+                  }
+                }
+              }
+            : {})}
+        >
           Tweet
         </S.Tweet>
       </S.Bar>
@@ -38,10 +54,36 @@ function Compose({ visible, text, onMouseLeave, onMouseOver, setText, composeIsO
         />
         <S.Bottom>
           <A.Horizontal centerV spaceAll={0}>
-            <S.IconWrap onClick={() => alert('You can add images and gifs from the real app 😜️')}>
+            <S.IconWrap
+              onClick={alertForImage}
+              {...(visible
+                ? {
+                    role: 'button',
+                    tabIndex: 0,
+                    onKeyPress: e => {
+                      if (e.which === 13) {
+                        alertForImage(e);
+                      }
+                    }
+                  }
+                : {})}
+            >
               <S.ActionIcon icon={image} />
             </S.IconWrap>
-            <S.IconWrap onClick={() => alert('You can attach polls from the real app 😜️')}>
+            <S.IconWrap
+              onClick={alertForPolls}
+              {...(visible
+                ? {
+                    role: 'button',
+                    tabIndex: 0,
+                    onKeyPress: e => {
+                      if (e.which === 13) {
+                        alertForPolls(e);
+                      }
+                    }
+                  }
+                : {})}
+            >
               <S.ActionIcon style={{ position: 'relative', top: -2 }} icon={bars} />
             </S.IconWrap>
           </A.Horizontal>
@@ -58,7 +100,23 @@ function Compose({ visible, text, onMouseLeave, onMouseOver, setText, composeIsO
   let content = (
     <Fragment>
       <PoseGroup>
-        {composeIsOpen && <S.Overlay key="overlay" onClick={() => setComposeOpen(false)} />}
+        {composeIsOpen && (
+          <S.Overlay
+            key="overlay"
+            onClick={() => setComposeOpen(false)}
+            {...(visible
+              ? {
+                  role: 'button',
+                  tabIndex: 0,
+                  onKeyPress: e => {
+                    if (e.which === 13) {
+                      setComposeOpen(false);
+                    }
+                  }
+                }
+              : {})}
+          />
+        )}
       </PoseGroup>
       {compose}
     </Fragment>

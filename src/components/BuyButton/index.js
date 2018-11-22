@@ -29,7 +29,17 @@ function BuyButton({ startLoading }) {
   return (
     <LoadScript startLoading={startLoading} src="https://cdn.paddle.com/paddle/paddle.js">
       {ready => (
-        <S.Button disabled={!ready} onClick={ready ? buy : null}>
+        <S.Button
+          disabled={!ready}
+          onClick={ready ? buy : null}
+          role="button"
+          tabIndex={0}
+          onKeyPress={e => {
+            if (e.which === 13 && ready) {
+              buy(e);
+            }
+          }}
+        >
           <S.AppleIcon icon={faApple} />
           <span>Buy for macOS</span>
         </S.Button>
