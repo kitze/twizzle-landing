@@ -66,7 +66,7 @@ function Home() {
   const isBig = window.innerWidth > 450;
 
   // methods
-  const onToggleSwitch = () => {
+  const onToggleNight = () => {
     setNight(n => !n);
     setToggleCount(toggleCount + 1);
   };
@@ -105,7 +105,12 @@ function Home() {
           <S.Content innerRef={contentRef}>
             <S.WindowBox innerRef={messagesWindowRef} initialPose="hidden" pose={homePose} {...windowCenter}>
               <S.Window night={night} hovering={isHoveringMessages.value}>
-                <Messages messagesPose={messagesPose} fabPose={fabPose} night={night} />
+                <Messages
+                  messagesPose={messagesPose}
+                  fabPose={fabPose}
+                  night={night}
+                  onToggleNight={onToggleNight}
+                />
               </S.Window>
             </S.WindowBox>
 
@@ -135,7 +140,7 @@ function Home() {
 
               <A.Space />
 
-              <DayNightSwitch value={night} onChange={onToggleSwitch} />
+              <DayNightSwitch value={night} onChange={onToggleNight} />
               <ToggleCount onTweet={tweetProgress} count={toggleCount} />
             </S.TextContent>
           </S.Content>
@@ -145,7 +150,9 @@ function Home() {
             <S.Link href="mailto:contact@twizzy.app">Contact</S.Link>
             <S.Link href="privacy.html">Privacy</S.Link>
             <S.Link href="disclaimer.html">Disclaimer</S.Link>
-            <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">View source</S.Link>
+            <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">
+              View source
+            </S.Link>
           </S.Links>
         </S.Footer>
       </S.Home>
