@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1051px" height="529px" viewBox="0 0 1051 529" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="49.9999965%" y1="-21.2643708%" x2="49.9999985%" y2="99.4252744%" id="linearGradient-1">
+            <stop stop-color="#0D1C32" offset="0%"></stop>
+            <stop stop-color="#405271" stop-opacity="0.942113904" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="-6.03250429e-06%" y1="49.9999227%" x2="99.9999923%" y2="49.9999227%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" stop-opacity="0.624179121" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="empty-desert-landscape">
+            <rect id="rect4136-2-9-11" fill="url(#linearGradient-1)" fill-rule="nonzero" x="0.8254704" y="0.93158" width="1049.2145" height="524.60724"></rect>
+            <circle id="path4388-4" fill="url(#linearGradient-2)" fill-rule="nonzero" cx="946.155291" cy="104.210453" r="22.740434"></circle>
+            <polygon id="rect4161-8-5" fill="#43485F" fill-rule="nonzero" points="1.9152457 399.3617 307.48327 382.98747 658.09729 400.59006 849.09027 372.22683 1049.3965 399.3617 1049.3965 528.6979 1.9152457 528.6979"></polygon>
+            <polygon id="path4353-6" fill="#43485F" points="385.82798 400.60849 633.19085 322.12473 958.94422 399.87063 1049.9856 425.24212 1049.9586 445.59596 651.80463 443.98692"></polygon>
+            <polygon id="path4355-1" fill="#3F445C" points="635.43711 322.01333 1049.7459 428.95681 1049.7609 398.35751 1000.1918 391.76526"></polygon>
+        </g>
+    </g>
+</svg>
