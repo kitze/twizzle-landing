@@ -145,6 +145,7 @@ function Home() {
             <S.Link href="mailto:contact@twizzy.app">Contact</S.Link>
             <S.Link href="privacy.html">Privacy</S.Link>
             <S.Link href="disclaimer.html">Disclaimer</S.Link>
+            <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">View source</S.Link>
           </S.Links>
         </S.Footer>
       </S.Home>
