@@ -22,8 +22,6 @@ export const useHovered = () => {
   const [hovering, setHovering] = useState(false);
   const canHover = useCanHover();
 
-  console.log('canHover', canHover);
-
   return {
     value: hovering,
     setValue: setHovering,
