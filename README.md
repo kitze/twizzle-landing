@@ -26,7 +26,7 @@ I'll move these hooks to [react-hanger](https://github.com/kitze/react-hanger) s
 ## ⏸️ Suspense and `LoadScript`
 Yeah, yeah, I know we shouldn't use `react-cache` yet, but YOLO.  
 
-I made this [LoadScript](https://github.com/kitze/twizzy-landing/blob/master/src/components/Script/index.js#L26-L33) component is used to delay the loading of the Paddle script for payments until the page is ready. 
+I made this [LoadScript](https://github.com/kitze/twizzy-landing/blob/master/src/components/Script/index.js#L26-L33) component to delay the loading of the Paddle script for payments until the page is ready. 
 - I made a custom component because `Suspense` wants you to put alternative UI in the `fallback` prop, and I didn't want an alternative UI, I just wanted the `Buy` button to be disabled until the script is ready, so I used render props
 - When the page is done with loading, it sets `startLoading` to true and it starts loading the Paddle script. 
 - Until the script is ready, the `Buy` button is disabled. The user woulnd't click the button in the first few seconds anyway.
@@ -34,6 +34,7 @@ I made this [LoadScript](https://github.com/kitze/twizzy-landing/blob/master/src
 
 ## 🏝️ Desert background
 
+- I extracted all the logic for the background in a [Background](https://github.com/kitze/twizzy-landing/blob/master/src/components/Background/index.js) component
 - For the background I'm using 2 different svg images of a desert, a light one and a dark one.
 - I tried using them as background images, but they get all weird for some reason
 - They are switched using the [DayNightToggle](https://github.com/kitze/twizzy-landing/blob/master/src/components/DayNightSwitch/index.js).
@@ -55,6 +56,6 @@ It's really [nothing fancy](https://github.com/kitze/twizzy-landing/blob/master/
 
 Just open an issue if you're interested about anything else in the app, and I'll add it in the readme.
 
-## 🔌️ Hooks & Suspense workshops 
+## 🔌️ React 16.7 workshops 
 
-All of the materials for the upcoming [React Academy workshops](http://reactacademy.io) are using hooks and Suspense. More locations will be announced soon 🎉
+All of the materials for the upcoming [React Academy workshops](http://reactacademy.io) are using hooks and Suspense. If your company or conference is interested in a beginner or an advanced workshop [just get in touch](mailto:contact@reactacademy.io).
