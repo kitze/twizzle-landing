@@ -19,7 +19,7 @@ import Compose from 'components/Compose';
 import ToggleCount from 'components/ToggleCount';
 import BuyButton from 'components/BuyButton';
 import Background from 'components/Background';
-import { ThemeProvider } from 'emotion-theming';
+import { ThemeProvider } from 'styled-components';
 
 //hooks
 import {
@@ -145,7 +145,9 @@ function Home() {
             <S.Link href="mailto:contact@twizzy.app">Contact</S.Link>
             <S.Link href="privacy.html">Privacy</S.Link>
             <S.Link href="disclaimer.html">Disclaimer</S.Link>
-            <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">View source</S.Link>
+            <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">
+              View source
+            </S.Link>
           </S.Links>
         </S.Footer>
       </S.Home>

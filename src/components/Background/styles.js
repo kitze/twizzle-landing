@@ -1,4 +1,4 @@
-import emotion from 'react-emotion';
+import emotion from 'styled-components';
 import { ELEMENTS, zIndexFor } from 'styles/zindex';
 import { when } from 'styles/mixins';
 

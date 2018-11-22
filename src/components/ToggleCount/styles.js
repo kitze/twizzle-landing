@@ -1,4 +1,4 @@
-import emotion from "react-emotion";
+import emotion from "styled-components";
 import {getThemeColor} from "styles/mixins";
 
 export const ToggleCount = emotion.div(
