@@ -52,6 +52,10 @@ I made this [LoadScript](https://github.com/kitze/twizzy-landing/blob/master/src
 
 It's really [nothing fancy](https://github.com/kitze/twizzy-landing/blob/master/src/components/DayNightSwitch/index.js), just couple of styled divs. I feel a bit guilty because it's completely inaccessible by keyboard users.
 
+## z-index
+
+So, z-index has been driving me crazy for a long time, so I decided to [simplify the logic](https://github.com/kitze/twizzy-landing/blob/master/src/styles/zindex.js) by ordering all elements in an `order` array and then using `...zIndexFor(ELEMENTS.COMPOSE)` in the styles for the component that needs z-index. Smooth.
+
 ## 🖌️ Theming
 
 - The app has a dark and a light mode, and all the logic for them is in [styles/themes.js](https://github.com/kitze/twizzy-landing/blob/master/src/styles/themes.js).
