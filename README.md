@@ -52,6 +52,14 @@ I made this [LoadScript](https://github.com/kitze/twizzy-landing/blob/master/src
 
 It's really [nothing fancy](https://github.com/kitze/twizzy-landing/blob/master/src/components/DayNightSwitch/index.js), just couple of styled divs. I feel a bit guilty because it's completely inaccessible by keyboard users.
 
+## 🖌️ Theming
+
+- The app has a dark and a light mode, and all the logic for them is in [styles/themes.js](https://github.com/kitze/twizzy-landing/blob/master/src/styles/themes.js).
+- Other components can use the themes either by destructuring the `theme` prop, or with the following mixins:
+
+- `whenTheme` - It applies style only when the certain theme name is active. Exapmle: `whenTheme('dark', {backgroundColor: 'black})`
+- `applyTheme` - It applies certain theme styles to the element. Example: `applyTheme('windowBar')` will get the `theme.windowBar` styles from the current theme
+
 ## ⁉️ AMA
 
 Just open an issue if you're interested about anything else in the app, and I'll add it in the readme.
