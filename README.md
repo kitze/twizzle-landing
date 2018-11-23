@@ -6,12 +6,12 @@
 It's `CRA 2` with `customize-cra` and `react-app-rewired`.  
 The [config file](https://github.com/kitze/twizzy-landing/blob/master/config-overrides.js) is adding/changing the following:
 
-- Add `babel-plugin-emotion`
+- Add `babel-plugin-styled-components`
 - Add `inline-react-svg` to inline svg files (I know CRA has this functionality but you import every file in a specific way)
 - Disable ESlint 🤷‍♂️️
 
 ## ✅️ Main file
-The magic happens in [components/App.js](https://github.com/kitze/twizzy-landing/blob/master/src/components/App/index.js)
+The magic happens in [components/App/index.js](https://github.com/kitze/twizzy-landing/blob/master/src/components/App/index.js)
 
 ## 🐟️ Custom hooks
 All of the hooks are in [utils/hooks.js](https://github.com/kitze/twizzy-landing/blob/master/src/utils/hooks.js)
