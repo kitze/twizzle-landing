@@ -17,6 +17,7 @@ export const DayNightSwitch = emotion.div(
     width,
     borderRadius: 17,
     transition: `all ${transitionTime}ms linear`,
+    overflow: 'hidden',
     ...hover(
       {
         transform: `scale(1.05)`
