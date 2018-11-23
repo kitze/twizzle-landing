@@ -13,6 +13,7 @@ function DayNightSwitch({ value, onChange }) {
       <div>
         <span
           onClick={onChange}
+          style={{ display: 'inline-block' }}
           role="button"
           tabIndex={0}
           onKeyPress={e => {
