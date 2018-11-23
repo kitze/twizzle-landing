@@ -11,9 +11,8 @@ function DayNightSwitch({ value, onChange }) {
   return (
     <ThemeProvider theme={{ clicked: value }}>
       <div>
-        <span
+        <S.Wrapper
           onClick={onChange}
-          style={{ display: 'inline-block' }}
           role="button"
           tabIndex={0}
           onKeyPress={e => {
@@ -35,7 +34,7 @@ function DayNightSwitch({ value, onChange }) {
               <S.Moon icon={faMoon} />
             </S.Circle>
           </S.DayNightSwitch>
-        </span>
+        </S.Wrapper>
       </div>
     </ThemeProvider>
   );

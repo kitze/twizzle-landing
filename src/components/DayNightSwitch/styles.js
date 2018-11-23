@@ -8,6 +8,12 @@ const circleWidth = 27;
 const sideOffset = 5;
 const transitionTime = 200;
 
+export const Wrapper = emotion.div({
+  display: 'inline-block',
+  borderRadius: 17,
+  overflow: 'hidden'
+});
+
 export const DayNightSwitch = emotion.div(
   {
     ...flex.horizontal,
@@ -17,7 +23,6 @@ export const DayNightSwitch = emotion.div(
     width,
     borderRadius: 17,
     transition: `all ${transitionTime}ms linear`,
-    overflow: 'hidden',
     ...hover(
       {
         transform: `scale(1.05)`
