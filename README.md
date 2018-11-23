@@ -11,7 +11,7 @@ The [config file](https://github.com/kitze/twizzy-landing/blob/master/config-ove
 - Disable ESlint 🤷‍♂️️
 
 ## ✅️ Main file
-The magic happens in [components/App.js](https://github.com/kitze/twizzy-landing/blob/master/src/components/App/index.js)
+The magic happens in [components/App/index.js](https://github.com/kitze/twizzy-landing/blob/master/src/components/App/index.js)
 
 ## 🐟️ Custom hooks
 All of the hooks are in [utils/hooks.js](https://github.com/kitze/twizzy-landing/blob/master/src/utils/hooks.js)
