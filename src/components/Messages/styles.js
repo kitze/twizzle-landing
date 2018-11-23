@@ -6,6 +6,8 @@ import FontAwesomeIcon from 'icons/Icon.js';
 //mixins
 import { hover, applyTheme, getThemeColor } from 'styles/mixins';
 import { smaller } from 'styles/responsive';
+import pose from 'react-pose';
+import { ELEMENTS, zIndexFor } from 'styles/zindex';
 
 export const Messages = emotion.div(
   {
@@ -16,6 +18,7 @@ export const Messages = emotion.div(
     transition: 'all 100ms linear',
     position: 'relative',
     userSelect: 'none',
+    ...zIndexFor(ELEMENTS.MESSAGES),
     [smaller(320)]: {
       fontSize: 13
     }
@@ -47,6 +50,22 @@ export const Fab = emotion(FabAnimated)({
   borderRadius: '100%'
 });
 
+export const ChatWrap = emotion(
+  pose.div({
+    enter: {
+      delay: 500,
+      opacity: 1
+    },
+    exit: {
+      opacity: 0
+    }
+  })
+)({
+  flex: 1,
+  ...flex.vertical,
+  width: '100%'
+});
+
 export const Bar = emotion.div(
   {
     ...flex.horizontal,
@@ -60,17 +79,19 @@ export const Bar = emotion.div(
   applyTheme('bar')
 );
 
-export const List = emotion.div({});
+export const List = emotion.div({
+  flex: 1
+});
 
 export const Title = emotion.div({});
 
-const Animated = posed.a({
+export const AnimatedMessage = posed.a({
   exit: { x: ({ index }) => -50 + index * 5, opacity: 0 },
   enter: { x: 0, opacity: 1, delay: ({ index }) => 1000 + index * 100 }
 });
 
 export const Message = {
-  Wrap: emotion(Animated)(
+  Wrap: emotion(AnimatedMessage)(
     {
       ...flex.horizontal,
       ...flex.centerHorizontalV,
@@ -81,11 +102,14 @@ export const Message = {
       textDecoration: 'none'
     },
     applyTheme('messageWrap'),
-    ({ clickable, theme }) => ({
+    ({ clickable, theme, selected }) => ({
       ...(clickable && {
         ...hover({
           backgroundColor: theme.name === 'dark' ? '#16212d' : '#efefef'
         })
+      }),
+      ...(selected && {
+        backgroundColor: theme.name === 'dark' ? '#16212d' : '#efefef'
       })
     })
   ),

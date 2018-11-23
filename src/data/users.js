@@ -12,19 +12,50 @@ export default [
     name: 'Kitze',
     username: 'thekitze',
     message: `I made the app so I'm a bit biased.`,
-    img: kitze
+    img: kitze,
+    messages: [
+      {
+        message: 'Hey there',
+        sender: false
+      },
+      {
+        message: 'Can you stop integrating crap?',
+        sender: false
+      }
+    ]
   },
   {
     name: 'Twizzy',
     username: 'twizzyapp',
     message: `I *am* the app so I'm even more biased!`,
-    img: twizzy
+    img: twizzy,
+    messages: [
+      {
+        message: 'Hey Kitze 👋️',
+        sender: false
+      },
+      {
+        message: `Can you stop wasting time on the landing page? It's enough...`,
+        sender: false
+      }
+    ]
   },
   {
     name: 'Matthew',
     username: 'ijustwanttotweet',
     message: `I need Twitter DM as an app!`,
-    img: avatar3
+    img: avatar3,
+    messages: [
+      {
+        message: 'Hello twizzy',
+        sender: true,
+        url: 'https://github.com/kitze/jsui'
+      },
+      {
+        message: 'I hate you too',
+        sender: false
+      }
+    ]
   },
   {
     name: 'Peggy White',

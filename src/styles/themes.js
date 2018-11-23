@@ -19,7 +19,10 @@ export default {
     colors: {
       dimmed: '#647787',
       icon: '#72bfff',
-      text: '#565656'
+      text: '#565656',
+      bar: 'white',
+      messageBubble1: '#72bfff',
+      messageBubble2: 'gray'
     },
     button: {
       background: 'rgba(255, 255, 255, 0.8)',
@@ -45,7 +48,10 @@ export default {
     colors: {
       dimmed: '#8799a7',
       icon: '#72bfff',
-      text: 'white'
+      text: 'white',
+      bar: '#233448',
+      messageBubble2: '#1c95e0',
+      messageBubble1: '#3d5466'
     },
     button: {
       background: 'rgba(255, 255, 255, 0.2)',

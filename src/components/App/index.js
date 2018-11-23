@@ -43,12 +43,16 @@ function Home() {
     `Woah! With twizzy.app I can use Twitter DMs and tweet directly from the menubar. Sweet! 😄️`
   );
 
+  const [selectedUser, setSelectedUser] = useState();
+
   // refs
   const contentRef = useRef();
   const messagesWindowRef = useRef();
 
   //custom hooks
-  const { isAnimationDone, fabPose, menuBarPose, messagesPose, homePose } = useIntroAnimation(false);
+  const { isAnimationDone, setHomePose, fabPose, menuBarPose, messagesPose, homePose } = useIntroAnimation(
+    true
+  );
   const canHover = useCanHover();
   const isHoveringMessages = useHovered();
   const isHoveringCompose = useHovered();
@@ -64,6 +68,7 @@ function Home() {
   const isNotHoveringMenuBar = mouseY === null || mouseY >= 25;
   const showComposeWindow = composeIsOpen || (isHoveringCompose.value && isNotHoveringMenuBar);
   const isBig = window.innerWidth > 450;
+  const expanded = !!selectedUser;
 
   // methods
   const onToggleSwitch = () => {
@@ -76,6 +81,11 @@ function Home() {
       `I'm having too much fun with the day/night switch on twizzy.app 🤦️ ${toggleCount} times so far! 😂️`
     );
     setComposeOpen(true);
+  };
+
+  const expandMessages = user => {
+    setSelectedUser(user);
+    setHomePose('expanded');
   };
 
   return (
@@ -105,7 +115,13 @@ function Home() {
           <S.Content innerRef={contentRef}>
             <S.WindowBox innerRef={messagesWindowRef} initialPose="hidden" pose={homePose} {...windowCenter}>
               <S.Window night={night} hovering={isHoveringMessages.value}>
-                <Messages messagesPose={messagesPose} fabPose={fabPose} night={night} />
+                <Messages
+                  selectedUser={selectedUser}
+                  setSelectedUser={expandMessages}
+                  messagesPose={messagesPose}
+                  fabPose={fabPose}
+                  night={night}
+                />
               </S.Window>
             </S.WindowBox>
 
@@ -145,7 +161,9 @@ function Home() {
             <S.Link href="mailto:contact@twizzy.app">Contact</S.Link>
             <S.Link href="privacy.html">Privacy</S.Link>
             <S.Link href="disclaimer.html">Disclaimer</S.Link>
-            <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">View source</S.Link>
+            <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">
+              View source
+            </S.Link>
           </S.Links>
         </S.Footer>
       </S.Home>

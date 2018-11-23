@@ -4,6 +4,9 @@ const margin = {
 };
 
 export const flex = {
+  inlineFlex: {
+    display: 'inline-flex'
+  },
   horizontal: {
     display: 'flex',
     flexDirection: 'row'

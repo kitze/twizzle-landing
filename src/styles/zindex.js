@@ -5,6 +5,7 @@ export const ELEMENTS = {
   MAIN_SECTION: 'main-section',
   FOOTER: 'footer',
   CONTENT: 'content',
+  MESSAGES: 'messages',
   DESERT: 'desert'
 };
 
@@ -13,6 +14,7 @@ const order = [
   ELEMENTS.MAIN_SECTION,
   ELEMENTS.FOOTER,
   ELEMENTS.CONTENT,
+  ELEMENTS.MESSAGES,
   ELEMENTS.OVERLAY,
   ELEMENTS.COMPOSE,
   ELEMENTS.MENUBAR

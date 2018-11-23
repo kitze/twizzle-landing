@@ -25,10 +25,17 @@ export const WindowBox = emotion(
       y: ({ y }) => y,
       x: ({ x }) => x
     },
-    normal: { opacity: 1, y: 0, x: 0 }
+    normal: { opacity: 1, y: 0, x: 0 },
+
+    expanded: {
+      opacity: 1,
+      y: ({ y }) => y,
+      x: ({ x }) => x - 300,
+      width: '80vw'
+    }
   })
 )({
-  maxWidth: 385,
+  maxWidth: 1100,
   [isHorizontal]: {
     margin: 'auto',
     width: '100%'
@@ -182,6 +189,9 @@ export const TextContent = emotion(
     normal: { opacity: 1 },
     hidden: {
       opacity: 0
+    },
+    expanded: {
+      opacity: 0
     }
   })
 )(
@@ -196,7 +206,3 @@ export const TextContent = emotion(
     pointerEvents: 'none'
   })
 );
-
-
-
-

@@ -10,6 +10,9 @@ export const fixedSize = (width, height = width) => ({ width, height });
 
 export const applyTheme = name => ({ theme }) => theme[name];
 
+export const whiteish = opacity => `rgba(255,255,255,${opacity})`;
+export const blackish = opacity => `rgba(0,0,0,${opacity})`;
+
 export const whenTheme = (name, val) => ({ theme }) => ({
   ...(theme.name === name && val)
 });

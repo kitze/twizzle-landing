@@ -5,7 +5,7 @@ import sequence from 'utils/sequence';
 
 const useIntroAnimation = (showInDev = true) => {
   // poses
-  const { pose: homePose, setPose: setHomePose } = usePose('hidden', ['hidden', 'middle', 'normal']);
+  const { pose: homePose, setPose: setHomePose } = usePose('hidden', ['hidden', 'middle', 'normal', 'expanded']);
   const [messagesPose, setMessagesPose] = useVisiblePose(false);
   const [fabPose, setFabPose] = useVisiblePose(false);
   const [menuBarPose, setMenubarPose] = useVisiblePose(false);
@@ -47,7 +47,8 @@ const useIntroAnimation = (showInDev = true) => {
     messagesPose,
     fabPose,
     menuBarPose,
-    isAnimationDone
+    isAnimationDone,
+    setHomePose
   };
 };
 
