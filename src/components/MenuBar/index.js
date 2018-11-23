@@ -12,7 +12,7 @@ function MenuBar({ src, className, pose, initialPose, selected, children, onClic
           role="button"
           tabIndex={0}
           onKeyPress={e => {
-            if (e.which === 13) {
+            if (e.which === 13 || e.which === 32) {
               onClick(e);
             }
           }}

@@ -35,7 +35,7 @@ function BuyButton({ startLoading }) {
           role="button"
           tabIndex={0}
           onKeyPress={e => {
-            if (e.which === 13 && ready) {
+            if ((e.which === 13 || e.which === 32) && ready) {
               buy(e);
             }
           }}

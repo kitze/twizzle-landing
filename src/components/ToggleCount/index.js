@@ -50,7 +50,7 @@ function ToggleCount({ count, onTweet }) {
             role="button"
             tabIndex={0}
             onKeyPress={e => {
-              if (e.which === 13) {
+              if (e.which === 13 || e.which === 32) {
                 onTweet(e);
               }
             }}

@@ -31,7 +31,7 @@ function Compose({ visible, text, onMouseLeave, onMouseOver, setText, composeIsO
                 role: 'button',
                 tabIndex: 0,
                 onKeyPress: e => {
-                  if (e.which === 13) {
+                  if (e.which === 13 || e.which === 32) {
                     tweet(e);
                   }
                 }
@@ -61,7 +61,7 @@ function Compose({ visible, text, onMouseLeave, onMouseOver, setText, composeIsO
                     role: 'button',
                     tabIndex: 0,
                     onKeyPress: e => {
-                      if (e.which === 13) {
+                      if (e.which === 13 || e.which === 32) {
                         alertForImage(e);
                       }
                     }
@@ -77,7 +77,7 @@ function Compose({ visible, text, onMouseLeave, onMouseOver, setText, composeIsO
                     role: 'button',
                     tabIndex: 0,
                     onKeyPress: e => {
-                      if (e.which === 13) {
+                      if (e.which === 13 || e.which === 32) {
                         alertForPolls(e);
                       }
                     }
@@ -109,7 +109,7 @@ function Compose({ visible, text, onMouseLeave, onMouseOver, setText, composeIsO
                   role: 'button',
                   tabIndex: 0,
                   onKeyPress: e => {
-                    if (e.which === 13) {
+                    if (e.which === 13 || e.which === 32) {
                       setComposeOpen(false);
                     }
                   }
