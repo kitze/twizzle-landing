@@ -1,5 +1,5 @@
 import flex from '../styles/flex';
-import emotion from 'react-emotion';
+import emotion from 'styled-components';
 import { Horizontal as $Horizontal, Vertical as $Vertical } from './flex-components';
 import {hover, whenTheme} from "styles/mixins";
 

@@ -1,4 +1,4 @@
-import emotion from 'react-emotion';
+import emotion from 'styled-components';
 import flex from 'styles/flex';
 import Icon from 'icons/Icon';
 import pose from 'react-pose';

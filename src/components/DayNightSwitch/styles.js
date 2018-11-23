@@ -1,4 +1,4 @@
-import emotion from 'react-emotion';
+import emotion from 'styled-components';
 import FontAwesomeIcon from 'icons/Icon.js';
 import flex from 'styles/flex';
 import { hover, fixedSize } from 'styles/mixins';

@@ -1,4 +1,4 @@
-import emotion from 'react-emotion';
+import emotion from 'styled-components';
 import flex from 'styles/flex';
 import { applyTheme, getThemeColor, hover, when } from 'styles/mixins';
 

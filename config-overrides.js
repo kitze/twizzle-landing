@@ -1,12 +1,8 @@
-const {
-  override,
-  disableEsLint,
-  addBabelPlugin
-} = require('customize-cra');
+const { override, disableEsLint, addBabelPlugin } = require('customize-cra');
 
 module.exports = override(
   disableEsLint(),
-  addBabelPlugin('emotion'),
+  addBabelPlugin('styled-components'),
   addBabelPlugin([
     'inline-react-svg',
     {

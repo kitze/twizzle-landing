@@ -19,7 +19,7 @@ import Compose from 'components/Compose';
 import ToggleCount from 'components/ToggleCount';
 import BuyButton from 'components/BuyButton';
 import Background from 'components/Background';
-import { ThemeProvider } from 'emotion-theming';
+import { ThemeProvider } from 'styled-components';
 
 //hooks
 import {
@@ -76,7 +76,7 @@ function Home() {
   const isBig = window.innerWidth > 450;
 
   // methods
-  const onToggleSwitch = () => {
+  const onToggleNight = () => {
     setNight(n => !n);
     setToggleCount(toggleCount + 1);
   };
@@ -115,7 +115,12 @@ function Home() {
           <S.Content innerRef={contentRef}>
             <S.WindowBox innerRef={messagesWindowRef} initialPose="hidden" pose={homePose} {...windowCenter}>
               <S.Window night={night} hovering={isHoveringMessages.value}>
-                <Messages messagesPose={messagesPose} fabPose={fabPose} night={night} />
+                <Messages
+                  messagesPose={messagesPose}
+                  fabPose={fabPose}
+                  night={night}
+                  onToggleNight={onToggleNight}
+                />
               </S.Window>
             </S.WindowBox>
 
@@ -145,7 +150,7 @@ function Home() {
 
               <A.Space />
 
-              <DayNightSwitch value={night} onChange={onToggleSwitch} />
+              <DayNightSwitch value={night} onChange={onToggleNight} />
               <ToggleCount onTweet={tweetProgress} count={toggleCount} />
             </S.TextContent>
           </S.Content>
