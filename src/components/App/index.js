@@ -19,7 +19,7 @@ import Compose from 'components/Compose';
 import ToggleCount from 'components/ToggleCount';
 import BuyButton from 'components/BuyButton';
 import Background from 'components/Background';
-import { ThemeProvider } from 'emotion-theming';
+import { ThemeProvider } from 'styled-components';
 
 //hooks
 import {
