@@ -1,10 +1,10 @@
-import emotion from 'styled-components';
+import styled from 'styled-components';
 import flex from 'styles/flex';
 import posed from 'react-pose';
 import FontAwesomeIcon from 'icons/Icon.js';
 import { ELEMENTS, zIndexFor } from 'styles/zindex';
 
-export const MenuBar = emotion(
+export const MenuBar = styled(
   posed.div({
     visible: { opacity: 1, y: 0 },
     hidden: { opacity: 0, y: -30 }
@@ -21,14 +21,14 @@ export const MenuBar = emotion(
   opacity: 0
 });
 
-export const Icons = emotion.div({
+export const Icons = styled.div({
   ...flex.horizontal,
   ...flex.centerHorizontalV,
   height: '100%',
   marginRight: 20
 });
 
-export const Item = emotion.div(
+export const Item = styled.div(
   {
     ...flex.horizontal,
     ...flex.centerHorizontal,
@@ -53,10 +53,10 @@ export const Item = emotion.div(
   })
 );
 
-export const Icon = emotion(FontAwesomeIcon)({
+export const Icon = styled(FontAwesomeIcon)({
   width: `15px !important`,
   height: `15px !important`,
   fill: 'white'
 });
 
-export const Text = emotion.div({ fontSize: 13, color: 'white' });
+export const Text = styled.div({ fontSize: 13, color: 'white' });

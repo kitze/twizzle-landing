@@ -1,4 +1,4 @@
-import emotion from 'styled-components';
+import styled from 'styled-components';
 import FontAwesomeIcon from 'icons/Icon.js';
 import flex from 'styles/flex';
 import { hover, fixedSize } from 'styles/mixins';
@@ -8,7 +8,7 @@ const circleWidth = 27;
 const sideOffset = 5;
 const transitionTime = 200;
 
-export const DayNightSwitch = emotion.div(
+export const DayNightSwitch = styled.div(
   {
     ...flex.horizontal,
     ...flex.centerHorizontalV,
@@ -43,14 +43,14 @@ export const DayNightSwitch = emotion.div(
   })
 );
 
-export const Icon = emotion(FontAwesomeIcon)({
+export const Icon = styled(FontAwesomeIcon)({
   position: 'absolute',
   transition: `all ${transitionTime}ms ease-in`,
   ...fixedSize(13),
   fill: 'white'
 });
 
-export const Moon = emotion(Icon)(({ theme }) => ({
+export const Moon = styled(Icon)(({ theme }) => ({
   ...(theme.clicked && {
     opacity: 1
   }),
@@ -60,7 +60,7 @@ export const Moon = emotion(Icon)(({ theme }) => ({
   })
 }));
 
-export const Star = emotion.div(
+export const Star = styled.div(
   {
     borderRadius: '100%',
     width: 3,
@@ -80,13 +80,13 @@ export const Star = emotion.div(
   })
 );
 
-export const Stars = emotion.div({}, ({ theme }) => ({
+export const Stars = styled.div({}, ({ theme }) => ({
   ...(theme.clicked && {
     opacity: 1
   })
 }));
 
-export const Circle = emotion.div(
+export const Circle = styled.div(
   {
     ...flex.horizontal,
     ...flex.centerHorizontal,

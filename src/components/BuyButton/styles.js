@@ -1,11 +1,11 @@
-import emotion from 'styled-components';
+import styled from 'styled-components';
 import flex from 'styles/flex';
 import { applyTheme, getThemeColor, hover, when } from 'styles/mixins';
 
 //components
 import Icon from 'icons/Icon';
 
-export const Button = emotion.button(
+export const Button = styled.button(
   {
     ...flex.horizontal,
     ...flex.centerHorizontal,
@@ -34,7 +34,7 @@ export const Button = emotion.button(
   })
 );
 
-export const AppleIcon = emotion(Icon)(
+export const AppleIcon = styled(Icon)(
   {
     marginRight: 15,
     width: 20,

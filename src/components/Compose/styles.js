@@ -1,4 +1,4 @@
-import emotion from 'styled-components';
+import styled from 'styled-components';
 import flex from 'styles/flex';
 import Icon from 'icons/Icon';
 import pose from 'react-pose';
@@ -7,7 +7,7 @@ import { smaller, breakpoints } from 'styles/responsive';
 
 import { ELEMENTS, zIndexFor } from 'styles/zindex';
 
-export const Compose = emotion.div(
+export const Compose = styled.div(
   {
     position: 'absolute',
     top: 25,
@@ -34,7 +34,7 @@ export const Compose = emotion.div(
   })
 );
 
-export const Overlay = emotion(
+export const Overlay = styled(
   pose.div({
     enter: { opacity: 1 },
     exit: { opacity: 0 }
@@ -51,12 +51,12 @@ export const Overlay = emotion(
   }
 );
 
-export const OverLimitText = emotion.div({
+export const OverLimitText = styled.div({
   color: '#e0245d',
   fontSize: 14
 });
 
-export const IconWrap = emotion.div({
+export const IconWrap = styled.div({
   ...flex.vertical,
   ...flex.centerVertical,
   transition: 'all 100ms linear',
@@ -68,12 +68,12 @@ export const IconWrap = emotion.div({
   })
 });
 
-export const ActionIcon = emotion(Icon)({
+export const ActionIcon = styled(Icon)({
   fill: '#1da1f2',
   width: 18
 });
 
-export const Bar = emotion.div({
+export const Bar = styled.div({
   ...flex.horizontal,
   ...flex.centerHorizontalV,
   justifyContent: 'flex-end',
@@ -82,7 +82,7 @@ export const Bar = emotion.div({
   backgroundColor: '#243547'
 });
 
-export const Tweet = emotion.button(
+export const Tweet = styled.button(
   {
     ...flex.vertical,
     ...flex.centerVertical,
@@ -105,18 +105,18 @@ export const Tweet = emotion.button(
   )
 );
 
-export const Content = emotion.div({
+export const Content = styled.div({
   backgroundColor: '#1a2836',
   padding: 10
 });
 
-export const Bottom = emotion.div({
+export const Bottom = styled.div({
   ...flex.horizontal,
   ...flex.centerHorizontalV,
   ...flex.spaceBetween
 });
 
-export const Input = emotion.textarea(
+export const Input = styled.textarea(
   {
     borderRadius: 3,
     backgroundColor: '#192530',
