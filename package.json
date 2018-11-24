@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "date-fns": "^1.29.0",
     "react": "^16.7.0-alpha.1",
     "react-cache": "^2.0.0-alpha.1",
     "react-dom": "^16.7.0-alpha.1",
@@ -28,9 +29,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.8.0",
     "babel-plugin-import": "^1.11.0",
     "babel-plugin-inline-react-svg": "^1.0.1",
+    "babel-plugin-styled-components": "^1.8.0",
     "customize-cra": "^0.2.4",
     "react-app-rewired": "^1.6.2",
     "react-scripts": "^2.1.1"

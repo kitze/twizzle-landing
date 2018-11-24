@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import React, { useRef, useState } from 'react';
 
 //icons (imported as svg using babel plugin)
@@ -64,6 +65,7 @@ function Home() {
   const isNotHoveringMenuBar = mouseY === null || mouseY >= 25;
   const showComposeWindow = composeIsOpen || (isHoveringCompose.value && isNotHoveringMenuBar);
   const isBig = window.innerWidth > 450;
+  const date = format(new Date(), 'ddd h:mm A');
 
   // methods
   const onToggleNight = () => {
@@ -90,7 +92,7 @@ function Home() {
             selected={showComposeWindow}
             onClick={() => setComposeOpen(v => !v)}
             mainIcon={faFeather}
-            icons={[faWifi, 'Wed 10:40', faVolumeUp, '100%', faBatteryFull]}
+            icons={[faWifi, date, faVolumeUp, '100%', faBatteryFull]}
           />
 
           <Compose
