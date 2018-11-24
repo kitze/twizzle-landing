@@ -1,4 +1,3 @@
-import { format } from 'date-fns';
 import React, { useRef, useState } from 'react';
 
 //icons (imported as svg using babel plugin)
@@ -29,7 +28,8 @@ import {
   useToggleBodyClass,
   useFindElementCenter,
   useMousePosition,
-  useCanHover
+  useCanHover,
+  useClock
 } from 'utils/hooks';
 import useIntroAnimation from './use-intro-animation';
 
@@ -55,6 +55,7 @@ function Home() {
   const isHoveringCompose = useHovered();
   const windowCenter = useFindElementCenter(messagesWindowRef);
   const { y: mouseY } = useMousePosition(isHoveringCompose.value);
+  const clock = useClock();
 
   // side effects
   useGoogleAnalytics(REACT_APP_ANALYTICS_ID, isAnimationDone);
@@ -65,7 +66,6 @@ function Home() {
   const isNotHoveringMenuBar = mouseY === null || mouseY >= 25;
   const showComposeWindow = composeIsOpen || (isHoveringCompose.value && isNotHoveringMenuBar);
   const isBig = window.innerWidth > 450;
-  const date = format(new Date(), 'ddd h:mm A');
 
   // methods
   const onToggleNight = () => {
@@ -92,7 +92,7 @@ function Home() {
             selected={showComposeWindow}
             onClick={() => setComposeOpen(v => !v)}
             mainIcon={faFeather}
-            icons={[faWifi, date, faVolumeUp, '100%', faBatteryFull]}
+            icons={[faWifi, clock, faVolumeUp, '100%', faBatteryFull]}
           />
 
           <Compose
