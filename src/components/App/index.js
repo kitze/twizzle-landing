@@ -28,7 +28,8 @@ import {
   useToggleBodyClass,
   useFindElementCenter,
   useMousePosition,
-  useCanHover
+  useCanHover,
+  useClock
 } from 'utils/hooks';
 import useIntroAnimation from './use-intro-animation';
 
@@ -64,6 +65,7 @@ function Home() {
   const isHoveringCompose = useHovered();
   const windowCenter = useFindElementCenter(messagesWindowRef);
   const { y: mouseY } = useMousePosition(isHoveringCompose.value);
+  const clock = useClock();
 
   // side effects
   useGoogleAnalytics(REACT_APP_ANALYTICS_ID, isAnimationDone);
@@ -100,7 +102,7 @@ function Home() {
             selected={showComposeWindow}
             onClick={() => setComposeOpen(v => !v)}
             mainIcon={faFeather}
-            icons={[faWifi, 'Wed 10:40', faVolumeUp, '100%', faBatteryFull]}
+            icons={[faWifi, clock, faVolumeUp, '100%', faBatteryFull]}
           />
 
           <Compose
