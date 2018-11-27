@@ -8,11 +8,17 @@ const circleWidth = 27;
 const sideOffset = 5;
 const transitionTime = 200;
 
+
+export const Wrapper = styled.div({
+  display: 'inline-block',
+  borderRadius: 17,
+  overflow: 'hidden'
+});
+
 export const DayNightSwitch = styled.div(
   {
     ...flex.horizontal,
     ...flex.centerHorizontalV,
-    outline: 'none',
     position: 'relative',
     height: 35,
     width,

@@ -24,7 +24,7 @@ function TweetCircle({ length, remaining }) {
     <S.Circle>
       <S.ProgressRing width={circleSize} height={circleSize}>
         <svg height="100%" viewBox="0 0 20 20" width="100%">
-          <circle cx="50%" cy="50%" fill="none" strokeWidth="2" r="9" stroke="#3D5466" />
+          <circle cx="50%" cy="50%" fill="none" strokeWidth="2" r="9" stroke="#3D546660" />
           <circle
             ref={ref}
             cx="50%"

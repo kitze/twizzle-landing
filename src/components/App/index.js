@@ -28,9 +28,20 @@ import {
   useToggleBodyClass,
   useFindElementCenter,
   useMousePosition,
-  useCanHover
+  useCanHover,
+  useClock
 } from 'utils/hooks';
 import useIntroAnimation from './use-intro-animation';
+
+/**
+ * Show outline only on keyboard interaction
+ *
+ * Adds 'js-focus-visible' class to body and 'focus-visible' class to focused element
+ *
+ * https://github.com/WICG/focus-visible
+ * https://davidwalsh.name/css-focus
+ */
+import 'focus-visible';
 
 //env
 const { REACT_APP_ANALYTICS_ID } = process.env;
@@ -54,6 +65,7 @@ function Home() {
   const isHoveringCompose = useHovered();
   const windowCenter = useFindElementCenter(messagesWindowRef);
   const { y: mouseY } = useMousePosition(isHoveringCompose.value);
+  const clock = useClock();
 
   // side effects
   useGoogleAnalytics(REACT_APP_ANALYTICS_ID, isAnimationDone);
@@ -90,7 +102,7 @@ function Home() {
             selected={showComposeWindow}
             onClick={() => setComposeOpen(v => !v)}
             mainIcon={faFeather}
-            icons={[faWifi, 'Wed 10:40', faVolumeUp, '100%', faBatteryFull]}
+            icons={[faWifi, clock, faVolumeUp, '100%', faBatteryFull]}
           />
 
           <Compose
