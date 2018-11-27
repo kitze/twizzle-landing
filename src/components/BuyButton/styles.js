@@ -10,7 +10,6 @@ export const Button = emotion.button(
     ...flex.horizontal,
     ...flex.centerHorizontal,
     userSelect: 'none',
-    outline: 'none',
     border: 'none',
     fontSize: 18,
     borderRadius: 4,

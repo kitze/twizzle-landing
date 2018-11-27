@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "focus-visible": "^4.1.5",
     "date-fns": "^1.29.0",
     "react": "^16.7.0-alpha.1",
     "react-cache": "^2.0.0-alpha.1",

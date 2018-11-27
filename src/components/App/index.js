@@ -33,6 +33,16 @@ import {
 } from 'utils/hooks';
 import useIntroAnimation from './use-intro-animation';
 
+/**
+ * Show outline only on keyboard interaction
+ *
+ * Adds 'js-focus-visible' class to body and 'focus-visible' class to focused element
+ *
+ * https://github.com/WICG/focus-visible
+ * https://davidwalsh.name/css-focus
+ */
+import 'focus-visible';
+
 //env
 const { REACT_APP_ANALYTICS_ID } = process.env;
 

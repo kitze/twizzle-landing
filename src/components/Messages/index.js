@@ -22,7 +22,17 @@ function Messages({ messagesPose, fabPose, onToggleNight }) {
       <S.Bar>
         <S.Title> Messages </S.Title>
         <A.Horizontal spaceAll={10}>
-          <S.Icon icon={faMoon} onClick={onToggleNight} style={{ cursor: 'pointer' }} />
+          <S.Icon
+            icon={faMoon}
+            onClick={onToggleNight}
+            role="button"
+            tabIndex={0}
+            onKeyPress={e => {
+              if (e.which === 13 || e.which === 32) {
+                onToggleNight(e);
+              }
+            }}
+          />
           <S.Icon icon={faBars} />
           <S.Icon icon={faCog} />
         </A.Horizontal>
