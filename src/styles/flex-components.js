@@ -1,4 +1,4 @@
-import emotion from 'styled-components';
+import styled from 'styled-components';
 import flex from './flex';
 
 const margin = {
@@ -29,7 +29,7 @@ const common = direction => p => ({
   ...(p.styles && p.styles)
 });
 
-export const Horizontal = emotion('div')(
+export const Horizontal = styled('div')(
   ({ center, centerV, centerH }) => ({
     ...flex.horizontal,
     ...(center && flex.centerHorizontal),
@@ -39,7 +39,7 @@ export const Horizontal = emotion('div')(
   common('horizontal')
 );
 
-export const Vertical = emotion('div')(
+export const Vertical = styled('div')(
   ({ center, centerV, centerH }) => ({
     ...flex.vertical,
     ...(center && flex.centerVertical),

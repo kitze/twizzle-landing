@@ -1,4 +1,4 @@
-import emotion from 'styled-components';
+import styled from 'styled-components';
 import flex from 'styles/flex';
 import posed from 'react-pose';
 import FontAwesomeIcon from 'icons/Icon.js';
@@ -7,7 +7,7 @@ import FontAwesomeIcon from 'icons/Icon.js';
 import { hover, applyTheme, getThemeColor } from 'styles/mixins';
 import { smaller } from 'styles/responsive';
 
-export const Messages = emotion.div(
+export const Messages = styled.div(
   {
     ...flex.vertical,
     width: '100%',
@@ -23,7 +23,7 @@ export const Messages = emotion.div(
   applyTheme('messages')
 );
 
-export const Icon = emotion(FontAwesomeIcon)(({ color, theme, fill }) => ({
+export const Icon = styled(FontAwesomeIcon)(({ color, theme, fill }) => ({
   fill: fill || theme.colors.icon,
   width: 17,
   height: 17
@@ -34,7 +34,7 @@ export const FabAnimated = posed.div({
   visible: { opacity: 1, y: 0 }
 });
 
-export const Fab = emotion(FabAnimated)({
+export const Fab = styled(FabAnimated)({
   ...flex.vertical,
   ...flex.centerVertical,
   backgroundColor: '#059ff5',
@@ -47,7 +47,7 @@ export const Fab = emotion(FabAnimated)({
   borderRadius: '100%'
 });
 
-export const Bar = emotion.div(
+export const Bar = styled.div(
   {
     ...flex.horizontal,
     ...flex.spaceBetween,
@@ -60,9 +60,9 @@ export const Bar = emotion.div(
   applyTheme('bar')
 );
 
-export const List = emotion.div({});
+export const List = styled.div({});
 
-export const Title = emotion.div({});
+export const Title = styled.div({});
 
 const Animated = posed.a({
   exit: { x: ({ index }) => -50 + index * 5, opacity: 0 },
@@ -70,7 +70,7 @@ const Animated = posed.a({
 });
 
 export const Message = {
-  Wrap: emotion(Animated)(
+  Wrap: styled(Animated)(
     {
       ...flex.horizontal,
       ...flex.centerHorizontalV,
@@ -89,14 +89,14 @@ export const Message = {
       })
     })
   ),
-  Mid: emotion.div({
+  Mid: styled.div({
     ...flex.vertical,
     ...flex.centerVerticalV,
     ...flex.spaceChildren(5, 'vertical'),
     flex: 1,
     overflow: 'hidden'
   }),
-  Avatar: emotion.img({
+  Avatar: styled.img({
     borderRadius: '100%',
     width: 50,
     height: 50,
@@ -106,14 +106,14 @@ export const Message = {
     minWidth: 50,
     minHeight: 50
   }),
-  Name: emotion.div(
+  Name: styled.div(
     {
       fontWeight: 'bold'
     },
     getThemeColor('text')
   ),
-  Username: emotion.div({}, getThemeColor('dimmed')),
-  Message: emotion.div(
+  Username: styled.div({}, getThemeColor('dimmed')),
+  Message: styled.div(
     {
       whiteSpace: 'nowrap',
       overflow: 'hidden',
@@ -123,7 +123,7 @@ export const Message = {
     },
     getThemeColor('dimmed')
   ),
-  Time: emotion.div(
+  Time: styled.div(
     {
       marginLeft: 10,
       fontSize: 14,
@@ -133,4 +133,4 @@ export const Message = {
   )
 };
 
-export const MessageFab = emotion.div({});
+export const MessageFab = styled.div({});

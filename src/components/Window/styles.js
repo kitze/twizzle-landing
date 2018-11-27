@@ -1,8 +1,8 @@
-import emotion from 'styled-components';
+import styled from 'styled-components';
 import flex from 'styles/flex';
 import { applyTheme } from 'styles/mixins';
 
-export const Window = emotion('div')({
+export const Window = styled('div')({
   ...flex.vertical,
   borderRadius: 5,
   overflow: 'hidden',
@@ -10,15 +10,15 @@ export const Window = emotion('div')({
   width: '100%'
 });
 
-export const Children = emotion.div({
+export const Children = styled.div({
   flex: 1
 });
 
-export const Buttons = emotion('div')({
+export const Buttons = styled('div')({
   ...flex.horizontal
 });
 
-export const Button = emotion('div')(
+export const Button = styled('div')(
   {
     width: 10,
     height: 10,
@@ -38,11 +38,11 @@ export const Button = emotion('div')(
   })
 );
 
-export const Title = emotion('div')({});
+export const Title = styled('div')({});
 
-export const Empty = emotion('div')({});
+export const Empty = styled('div')({});
 
-export const Bar = emotion('div')(
+export const Bar = styled('div')(
   {
     ...flex.horizontal,
     ...flex.centerHorizontalV,
