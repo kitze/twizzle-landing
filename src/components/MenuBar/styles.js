@@ -9,7 +9,7 @@ export const MenuBar = styled(
     visible: { opacity: 1, y: 0 },
     hidden: { opacity: 0, y: -30 }
   })
-)({
+)(({ theme }) => ({
   position: 'relative',
   ...flex.horizontal,
   ...flex.centerHorizontalV,
@@ -17,9 +17,9 @@ export const MenuBar = styled(
   ...zIndexFor(ELEMENTS.MENUBAR),
   height: 25,
   width: '100%',
-  backgroundColor: '#191d28',
+  backgroundColor: theme.name === 'dark' ? '#191d28' : '#f2f2f2',
   opacity: 0
-});
+}));
 
 export const Icons = styled.div({
   ...flex.horizontal,
@@ -39,7 +39,7 @@ export const Item = styled.div(
     height: '100%',
     transition: 'all 150ms linear'
   },
-  ({ selected, onClick }) => ({
+  ({ selected, onClick, theme }) => ({
     ...(selected && {
       backgroundColor: '#2b85f2'
     }),
@@ -47,16 +47,19 @@ export const Item = styled.div(
       !selected && {
         cursor: 'pointer',
         '&:hover': {
-          backgroundColor: '#193046'
+          backgroundColor: theme.name === 'dark' ? '#193046' : '#d7dee0'
         }
       })
   })
 );
 
-export const Icon = styled(FontAwesomeIcon)({
+export const Icon = styled(FontAwesomeIcon)(({ theme }) => ({
   width: `15px !important`,
   height: `15px !important`,
-  fill: 'white'
-});
+  fill: theme.name === 'dark' ? 'white' : 'black'
+}));
 
-export const Text = styled.div({ fontSize: 13, color: 'white' });
+export const Text = styled.div(({ theme }) => ({
+  fontSize: 13,
+  color: theme.name === 'dark' ? 'white' : 'black'
+}));
