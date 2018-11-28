@@ -12,7 +12,8 @@ const transitionTime = 200;
 export const Wrapper = styled.div({
   display: 'inline-block',
   borderRadius: 17,
-  overflow: 'hidden'
+  overflow: 'hidden',
+  willChange: 'transform'
 });
 
 export const DayNightSwitch = styled.div(
