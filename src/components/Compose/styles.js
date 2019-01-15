@@ -1,13 +1,13 @@
-import emotion from 'react-emotion';
+import styled from 'styled-components';
 import flex from 'styles/flex';
 import Icon from 'icons/Icon';
 import pose from 'react-pose';
-import { hover, when } from 'styles/mixins';
+import { hover, when, applyTheme } from 'styles/mixins';
 import { smaller, breakpoints } from 'styles/responsive';
 
 import { ELEMENTS, zIndexFor } from 'styles/zindex';
 
-export const Compose = emotion.div(
+export const Compose = styled.div(
   {
     position: 'absolute',
     top: 25,
@@ -34,29 +34,28 @@ export const Compose = emotion.div(
   })
 );
 
-export const Overlay = emotion(
+export const Overlay = styled(
   pose.div({
     enter: { opacity: 1 },
     exit: { opacity: 0 }
   })
-)(
-  {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    ...zIndexFor(ELEMENTS.OVERLAY),
-    height: '100vh',
-    width: '100vw'
-  }
-);
+)({
+  backgroundColor: 'rgba(0, 0, 0, 0.7)',
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  ...zIndexFor(ELEMENTS.OVERLAY),
+  height: '100vh',
+  width: '100vw'
+});
 
-export const OverLimitText = emotion.div({
+export const OverLimitText = styled.div({
   color: '#e0245d',
   fontSize: 14
 });
 
-export const IconWrap = emotion.div({
+
+export const IconWrap = styled.div(({ theme }) => ({
   ...flex.vertical,
   ...flex.centerVertical,
   transition: 'all 100ms linear',
@@ -64,25 +63,28 @@ export const IconWrap = emotion.div({
   width: 35,
   height: 35,
   ...hover({
-    backgroundColor: '#1b3549'
+    backgroundColor: theme.name === 'dark' ? '#1b3549' : '#E8F5FE'
   })
-});
+}));
 
-export const ActionIcon = emotion(Icon)({
+export const ActionIcon = styled(Icon)({
   fill: '#1da1f2',
   width: 18
 });
 
-export const Bar = emotion.div({
-  ...flex.horizontal,
-  ...flex.centerHorizontalV,
-  justifyContent: 'flex-end',
-  padding: '0px 10px',
-  height: 50,
-  backgroundColor: '#243547'
-});
+export const Bar = styled.div(
+  {
+    ...flex.horizontal,
+    ...flex.centerHorizontalV,
+    justifyContent: 'flex-end',
+    padding: '0px 10px',
+    height: 50,
+    borderBottom: '1px solid black'
+  },
+  applyTheme('composeBar')
+);
 
-export const Tweet = emotion.button(
+export const Tweet = styled.button(
   {
     ...flex.vertical,
     ...flex.centerVertical,
@@ -93,7 +95,6 @@ export const Tweet = emotion.button(
     height: 15,
     padding: 15,
     border: 'none',
-    outline: 'none',
     transition: 'all 100ms linear'
   },
   when(
@@ -105,30 +106,31 @@ export const Tweet = emotion.button(
   )
 );
 
-export const Content = emotion.div({
-  backgroundColor: '#1a2836',
-  padding: 10
-});
+export const Content = styled.div(
+  {
+    padding: 10
+  },
+  applyTheme('composeWindow')
+);
 
-export const Bottom = emotion.div({
+export const Bottom = styled.div({
   ...flex.horizontal,
   ...flex.centerHorizontalV,
   ...flex.spaceBetween
 });
 
-export const Input = emotion.textarea(
+export const Input = styled.textarea(
   {
     borderRadius: 3,
-    backgroundColor: '#192530',
     padding: 10,
     border: 'none',
     outline: 'none',
     minHeight: 105,
     width: '100%',
-    color: 'white',
     resize: 'none',
     borderBottom: '2px solid #1da1f2'
   },
+  applyTheme('composeInput'),
   when('disabled', {
     borderBottom: '2px solid #e0245d'
   })

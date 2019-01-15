@@ -1,15 +1,15 @@
-import emotion from 'react-emotion';
+import styled from 'styled-components';
 import flex from 'styles/flex';
 import posed from 'react-pose';
 import FontAwesomeIcon from 'icons/Icon.js';
 import { ELEMENTS, zIndexFor } from 'styles/zindex';
 
-export const MenuBar = emotion(
+export const MenuBar = styled(
   posed.div({
     visible: { opacity: 1, y: 0 },
     hidden: { opacity: 0, y: -30 }
   })
-)({
+)(({ theme }) => ({
   position: 'relative',
   ...flex.horizontal,
   ...flex.centerHorizontalV,
@@ -17,18 +17,18 @@ export const MenuBar = emotion(
   ...zIndexFor(ELEMENTS.MENUBAR),
   height: 25,
   width: '100%',
-  backgroundColor: '#191d28',
+  backgroundColor: theme.name === 'dark' ? '#191d28' : '#f2f2f2',
   opacity: 0
-});
+}));
 
-export const Icons = emotion.div({
+export const Icons = styled.div({
   ...flex.horizontal,
   ...flex.centerHorizontalV,
   height: '100%',
   marginRight: 20
 });
 
-export const Item = emotion.div(
+export const Item = styled.div(
   {
     ...flex.horizontal,
     ...flex.centerHorizontal,
@@ -39,7 +39,7 @@ export const Item = emotion.div(
     height: '100%',
     transition: 'all 150ms linear'
   },
-  ({ selected, onClick }) => ({
+  ({ selected, onClick, theme }) => ({
     ...(selected && {
       backgroundColor: '#2b85f2'
     }),
@@ -47,16 +47,19 @@ export const Item = emotion.div(
       !selected && {
         cursor: 'pointer',
         '&:hover': {
-          backgroundColor: '#193046'
+          backgroundColor: theme.name === 'dark' ? '#193046' : '#d7dee0'
         }
       })
   })
 );
 
-export const Icon = emotion(FontAwesomeIcon)({
+export const Icon = styled(FontAwesomeIcon)(({ theme }) => ({
   width: `15px !important`,
   height: `15px !important`,
-  fill: 'white'
-});
+  fill: theme.name === 'dark' ? 'white' : 'black'
+}));
 
-export const Text = emotion.div({ fontSize: 13, color: 'white' });
+export const Text = styled.div(({ theme }) => ({
+  fontSize: 13,
+  color: theme.name === 'dark' ? 'white' : 'black'
+}));

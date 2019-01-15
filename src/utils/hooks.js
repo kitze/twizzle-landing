@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import { useState, useEffect } from 'react';
 
 export const useCanHover = () => {
@@ -117,4 +118,17 @@ export const useMousePosition = shouldTrack => {
   );
 
   return canHover ? mousePosition : {};
+};
+
+export const useClock = () => {
+  const getCurrentTime = () => format(new Date(), 'ddd h:mm A');
+  const [time, setTime] = useState(getCurrentTime());
+
+  useEffect(() => {
+    const t = setInterval(() => setTime(getCurrentTime()), 1000);
+
+    return () => clearInterval(t);
+  }, []);
+
+  return time;
 };

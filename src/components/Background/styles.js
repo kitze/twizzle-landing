@@ -1,8 +1,8 @@
-import emotion from 'react-emotion';
+import styled from 'styled-components';
 import { ELEMENTS, zIndexFor } from 'styles/zindex';
 import { when } from 'styles/mixins';
 
-export const Desert = emotion.img(
+export const Desert = styled.img(
   {
     position: 'fixed',
     left: 0,

@@ -5,7 +5,18 @@ function MenuBar({ src, className, pose, initialPose, selected, children, onClic
   return (
     <S.MenuBar className={className} pose={pose} initialPose={initialPose}>
       <S.Icons>
-        <S.Item className="feather" selected={selected} onClick={onClick}>
+        <S.Item
+          className="feather"
+          selected={selected}
+          onClick={onClick}
+          role="button"
+          tabIndex={0}
+          onKeyPress={e => {
+            if (e.which === 13 || e.which === 32) {
+              onClick(e);
+            }
+          }}
+        >
           <S.Icon icon={mainIcon} />
         </S.Item>
         {icons.map((icon, key) => (

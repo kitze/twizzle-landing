@@ -1,4 +1,4 @@
-import emotion from 'react-emotion';
+import styled from 'styled-components';
 import flex from 'styles/flex';
 import WindowShell from 'components/Window';
 import pose from 'react-pose';
@@ -8,9 +8,9 @@ import { applyTheme, getThemeColor, hover, when, whenNot } from 'styles/mixins';
 import { breakpoints, isHorizontal, smaller, smallerHeight } from 'styles/responsive';
 import { ELEMENTS, zIndexFor } from 'styles/zindex';
 
-export const Text = emotion.div(getThemeColor('text'));
+export const Text = styled.div(getThemeColor('text'));
 
-export const WindowBox = emotion(
+export const WindowBox = styled(
   pose.div({
     hidden: {
       opacity: 0
@@ -35,7 +35,7 @@ export const WindowBox = emotion(
   }
 });
 
-export const Home = emotion.div({
+export const Home = styled.div({
   ...flex.vertical,
   ...flex.centerVertical,
   flex: 1,
@@ -43,7 +43,7 @@ export const Home = emotion.div({
   minWidth: '100vw'
 });
 
-export const Subtitle = emotion(Text)({
+export const Subtitle = styled(Text)({
   fontSize: 25,
   fontWeight: 300,
   lineHeight: '40px',
@@ -59,7 +59,7 @@ export const Subtitle = emotion(Text)({
   }
 });
 
-export const Window = emotion(WindowShell)(
+export const Window = styled(WindowShell)(
   {
     transition: 'all 250ms linear',
     [isHorizontal]: {
@@ -73,7 +73,7 @@ export const Window = emotion(WindowShell)(
   })
 );
 
-export const Title = emotion(Text)({
+export const Title = styled(Text)({
   fontWeight: 500,
   fontSize: 55,
   lineHeight: '50px',
@@ -81,7 +81,7 @@ export const Title = emotion(Text)({
   cursor: 'default'
 });
 
-export const MainSection = emotion.div({
+export const MainSection = styled.div({
   position: 'relative',
   ...flex.vertical,
   width: '100%',
@@ -90,7 +90,7 @@ export const MainSection = emotion.div({
   ...zIndexFor(ELEMENTS.MAIN_SECTION)
 });
 
-export const Padding = emotion.div({
+export const Padding = styled.div({
   padding: '60px 100px',
   [smaller(breakpoints.large)]: {
     padding: '30px 50px'
@@ -103,7 +103,7 @@ export const Padding = emotion.div({
   }
 });
 
-export const Footer = emotion(
+export const Footer = styled(
   pose.div({
     visible: { opacity: 1, y: 0 },
     hidden: { opacity: 0, y: 30 },
@@ -143,12 +143,12 @@ export const Footer = emotion(
   })
 );
 
-export const Links = emotion.div({
+export const Links = styled.div({
   ...flex.horizontal,
   ...flex.centerHorizontal
 });
 
-export const Link = emotion.a(
+export const Link = styled.a(
   {
     textDecoration: 'none',
     borderBottom: '1px solid transparent',
@@ -165,7 +165,7 @@ export const Link = emotion.a(
   getThemeColor('text')
 );
 
-export const Content = emotion(Padding)({
+export const Content = styled(Padding)({
   ...flex.horizontal,
   ...zIndexFor(ELEMENTS.CONTENT),
   color: 'white',
@@ -177,7 +177,7 @@ export const Content = emotion(Padding)({
   }
 });
 
-export const TextContent = emotion(
+export const TextContent = styled(
   pose.div({
     normal: { opacity: 1 },
     hidden: {

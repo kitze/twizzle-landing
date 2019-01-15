@@ -19,7 +19,7 @@ import Compose from 'components/Compose';
 import ToggleCount from 'components/ToggleCount';
 import BuyButton from 'components/BuyButton';
 import Background from 'components/Background';
-import { ThemeProvider } from 'emotion-theming';
+import { ThemeProvider } from 'styled-components';
 
 //hooks
 import {
@@ -28,9 +28,20 @@ import {
   useToggleBodyClass,
   useFindElementCenter,
   useMousePosition,
-  useCanHover
+  useCanHover,
+  useClock
 } from 'utils/hooks';
 import useIntroAnimation from './use-intro-animation';
+
+/**
+ * Show outline only on keyboard interaction
+ *
+ * Adds 'js-focus-visible' class to body and 'focus-visible' class to focused element
+ *
+ * https://github.com/WICG/focus-visible
+ * https://davidwalsh.name/css-focus
+ */
+import 'focus-visible';
 
 //env
 const { REACT_APP_ANALYTICS_ID } = process.env;
@@ -54,6 +65,7 @@ function Home() {
   const isHoveringCompose = useHovered();
   const windowCenter = useFindElementCenter(messagesWindowRef);
   const { y: mouseY } = useMousePosition(isHoveringCompose.value);
+  const clock = useClock();
 
   // side effects
   useGoogleAnalytics(REACT_APP_ANALYTICS_ID, isAnimationDone);
@@ -66,7 +78,7 @@ function Home() {
   const isBig = window.innerWidth > 450;
 
   // methods
-  const onToggleSwitch = () => {
+  const onToggleNight = () => {
     setNight(n => !n);
     setToggleCount(toggleCount + 1);
   };
@@ -90,7 +102,7 @@ function Home() {
             selected={showComposeWindow}
             onClick={() => setComposeOpen(v => !v)}
             mainIcon={faFeather}
-            icons={[faWifi, 'Wed 10:40', faVolumeUp, '100%', faBatteryFull]}
+            icons={[faWifi, clock, faVolumeUp, '100%', faBatteryFull]}
           />
 
           <Compose
@@ -105,7 +117,12 @@ function Home() {
           <S.Content innerRef={contentRef}>
             <S.WindowBox innerRef={messagesWindowRef} initialPose="hidden" pose={homePose} {...windowCenter}>
               <S.Window night={night} hovering={isHoveringMessages.value}>
-                <Messages messagesPose={messagesPose} fabPose={fabPose} night={night} />
+                <Messages
+                  messagesPose={messagesPose}
+                  fabPose={fabPose}
+                  night={night}
+                  onToggleNight={onToggleNight}
+                />
               </S.Window>
             </S.WindowBox>
 
@@ -135,7 +152,7 @@ function Home() {
 
               <A.Space />
 
-              <DayNightSwitch value={night} onChange={onToggleSwitch} />
+              <DayNightSwitch value={night} onChange={onToggleNight} />
               <ToggleCount onTweet={tweetProgress} count={toggleCount} />
             </S.TextContent>
           </S.Content>
@@ -145,7 +162,9 @@ function Home() {
             <S.Link href="mailto:contact@twizzy.app">Contact</S.Link>
             <S.Link href="privacy.html">Privacy</S.Link>
             <S.Link href="disclaimer.html">Disclaimer</S.Link>
-            <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">View source</S.Link>
+            <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">
+              View source
+            </S.Link>
           </S.Links>
         </S.Footer>
       </S.Home>

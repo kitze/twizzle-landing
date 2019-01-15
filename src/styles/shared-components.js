@@ -1,12 +1,12 @@
 import flex from '../styles/flex';
-import emotion from 'react-emotion';
+import styled from 'styled-components';
 import { Horizontal as $Horizontal, Vertical as $Vertical } from './flex-components';
 import {hover, whenTheme} from "styles/mixins";
 
 export const Horizontal = $Horizontal;
 export const Vertical = $Vertical;
 
-export const Space = emotion('div')(
+export const Space = styled('div')(
   {
     height: 15,
     width: 15
@@ -20,7 +20,7 @@ export const Space = emotion('div')(
 );
 
 
-export const Hover = emotion.span(
+export const Hover = styled.span(
   {
     backgroundColor: 'rgba(255,255,255, 0.2)',
     padding: `2px 7px`,
