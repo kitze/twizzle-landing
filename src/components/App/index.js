@@ -152,6 +152,10 @@ function Home() {
 
               <A.Space />
 
+              <S.Platforms>Supports macOS, Windows, and Linux</S.Platforms>
+
+              <A.Space />
+
               <DayNightSwitch value={night} onChange={onToggleNight} />
               <ToggleCount onTweet={tweetProgress} count={toggleCount} />
             </S.TextContent>
@@ -163,7 +167,7 @@ function Home() {
             <S.Link href="privacy.html">Privacy</S.Link>
             <S.Link href="disclaimer.html">Disclaimer</S.Link>
             <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">
-              View source
+              View Source
             </S.Link>
           </S.Links>
         </S.Footer>

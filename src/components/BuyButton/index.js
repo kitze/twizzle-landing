@@ -4,7 +4,7 @@ import { LoadScript } from 'components/Script';
 import * as S from './styles';
 
 //icons
-import faApple from '../../icons/apple.svg';
+import faDownload from '../../icons/download.svg';
 import { isDev } from 'utils/dev-prod';
 
 //env
@@ -40,8 +40,8 @@ function BuyButton({ startLoading }) {
             }
           }}
         >
-          <S.AppleIcon icon={faApple} />
-          <span>Buy for macOS</span>
+          <S.AppleIcon icon={faDownload} />
+          <span>Buy now</span>
         </S.Button>
       )}
     </LoadScript>
