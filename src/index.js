@@ -1,5 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from 'components/App';
+import Router from './components/Router';
+import { routes } from './config/routes';
+import Root from 'components/Root';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Router routes={routes}>
+    <Root/>
+  </Router>,
+  document.getElementById('root')
+);

@@ -35,6 +35,8 @@ import {
 import useIntroAnimation from './use-intro-animation';
 
 import 'focus-visible';
+import { routes } from '../../config/routes';
+import useRouter from '../Router/use-router';
 
 //env
 const { REACT_APP_ANALYTICS_ID, REACT_APP_DOWNLOAD_LINK } = process.env;
@@ -45,7 +47,7 @@ const redirectDownload = () => {
   }
 };
 
-function Home() {
+function Home({isAnimationDone}) {
   redirectDownload();
 
   const [composeIsOpen, setComposeOpen] = useState(false);
@@ -60,18 +62,19 @@ function Home() {
   const messagesWindowRef = useRef();
 
   //custom hooks
-  const { isAnimationDone, fabPose, menuBarPose, messagesPose, homePose } = useIntroAnimation(false);
+  const { fabPose, menuBarPose, messagesPose, homePose } = useIntroAnimation(false, isAnimationDone);
   const canHover = useCanHover();
   const isHoveringMessages = useHovered();
   const isHoveringCompose = useHovered();
   const windowCenter = useFindElementCenter(messagesWindowRef);
   const { y: mouseY } = useMousePosition(isHoveringCompose.value);
   const clock = useClock();
+  const { openPage } = useRouter();
 
   // side effects
-  useGoogleAnalytics(REACT_APP_ANALYTICS_ID, isAnimationDone);
+  useGoogleAnalytics(REACT_APP_ANALYTICS_ID, isAnimationDone.value);
   useToggleBodyClass(night, ['dark', 'light']);
-  useToggleBodyClass(isAnimationDone, ['scroll', 'no-scroll']);
+  useToggleBodyClass(isAnimationDone.value, ['scroll', 'no-scroll']);
 
   // computed
   const isNotHoveringMenuBar = mouseY === null || mouseY >= 25;
@@ -95,7 +98,7 @@ function Home() {
     <ThemeProvider theme={themes[night ? 'dark' : 'light']}>
       <S.Home>
         <S.MainSection>
-          <Background night={night} startLoadingLight={isAnimationDone} show={isBig} />
+          <Background night={night} startLoadingLight={isAnimationDone.value} show={isBig} />
 
           <MenuBar
             className="menubar"
@@ -129,7 +132,7 @@ function Home() {
 
             <A.Space huge />
 
-            <S.TextContent isAnimationDone={isAnimationDone} pose={homePose}>
+            <S.TextContent isAnimationDone={isAnimationDone.value} pose={homePose}>
               <S.Title> Twizzy </S.Title>
 
               <A.Space huge />
@@ -149,7 +152,7 @@ function Home() {
 
               <A.Space />
 
-              <BuyButton startLoading={isAnimationDone} />
+              <BuyButton startLoading={isAnimationDone.value} />
 
               <A.Space />
 
@@ -170,6 +173,7 @@ function Home() {
             <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">
               View Source
             </S.Link>
+            <S.Link onClick={() => openPage(routes.license)}>Retrieve license</S.Link>
           </S.Links>
         </S.Footer>
       </S.Home>

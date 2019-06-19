@@ -3,17 +3,16 @@ import { usePose, useVisiblePose } from 'utils/hooks';
 import { devAndProd } from 'utils/dev-prod';
 import sequence from 'utils/sequence';
 
-const useIntroAnimation = (showInDev = true) => {
+const useIntroAnimation = (showInDev = true, isAnimationDone) => {
   // poses
   const { pose: homePose, setPose: setHomePose } = usePose('hidden', ['hidden', 'middle', 'normal']);
   const [messagesPose, setMessagesPose] = useVisiblePose(false);
   const [fabPose, setFabPose] = useVisiblePose(false);
   const [menuBarPose, setMenubarPose] = useVisiblePose(false);
-  const [isAnimationDone, setAnimationDone] = useState(false);
 
   useEffect(() => {
     //always show animation in prod, but toggle it in dev
-    const showAnimation = devAndProd(showInDev, true);
+    const showAnimation = isAnimationDone.value === false && devAndProd(showInDev, true);
 
     if (showAnimation) {
       sequence([
@@ -30,7 +29,7 @@ const useIntroAnimation = (showInDev = true) => {
         500,
         () => {
           setMenubarPose(true);
-          setAnimationDone(true);
+          isAnimationDone.setTrue();
         }
       ]);
     } else {
@@ -38,7 +37,7 @@ const useIntroAnimation = (showInDev = true) => {
       setHomePose('normal');
       setFabPose(true);
       setMenubarPose(true);
-      setAnimationDone(true);
+      isAnimationDone.setTrue();
     }
   }, []);
 
@@ -47,7 +46,7 @@ const useIntroAnimation = (showInDev = true) => {
     messagesPose,
     fabPose,
     menuBarPose,
-    isAnimationDone
+    isAnimationDone: isAnimationDone.value
   };
 };
 
