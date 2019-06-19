@@ -132,3 +132,35 @@ export const useClock = () => {
 
   return time;
 };
+
+export const useOnPageLoad = () => {
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    window.onload = () => setLoaded(true);
+  }, []);
+  return loaded;
+};
+
+export const useScript = props => useLoadScript(props);
+
+export const useLoadScript = ({ startLoading, src }) => {
+  const [state, setState] = useState({
+    ready: false,
+    error: null
+  });
+
+  useEffect(
+      () => {
+        if (startLoading) {
+          const script = document.createElement("script");
+          script.src = src;
+          script.onload = () => setState({ ready: true, error: null });
+          script.onerror = error => setState({ ready: false, error });
+          document.body.appendChild(script);
+        }
+      },
+      [startLoading]
+  );
+
+  return state;
+};

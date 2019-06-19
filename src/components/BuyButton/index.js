@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { LoadScript } from 'components/Script';
+import { LoadScript } from 'components/LoadScript';
 import * as S from './styles';
 
 //icons
