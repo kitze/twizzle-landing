@@ -114,8 +114,8 @@ function Home() {
             visible={showComposeWindow}
           />
 
-          <S.Content innerRef={contentRef}>
-            <S.WindowBox innerRef={messagesWindowRef} initialPose="hidden" pose={homePose} {...windowCenter}>
+          <S.Content ref={contentRef}>
+            <S.WindowBox ref={messagesWindowRef} initialPose="hidden" pose={homePose} {...windowCenter}>
               <S.Window night={night} hovering={isHoveringMessages.value}>
                 <Messages
                   messagesPose={messagesPose}
