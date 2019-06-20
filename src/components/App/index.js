@@ -200,7 +200,7 @@ function Home({ isAnimationDone, night }) {
           <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">
             View Source
           </S.Link>
-          <S.Link onClick={() => goTo(routes.license)}>Retrieve license</S.Link>
+          {/*<S.Link onClick={() => goTo(routes.license)}>Retrieve license</S.Link>*/}
         </S.Links>
       </S.Footer>
     </S.Home>
