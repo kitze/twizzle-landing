@@ -30,7 +30,6 @@ const useIntroAnimation = (showInDev = true, isAnimationDone) => {
         }
       ]);
     } else {
-      setMessagesPose(true);
       setHomePose('normal');
       setFabPose(true);
       setMenubarPose(true);
