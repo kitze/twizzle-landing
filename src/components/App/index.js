@@ -67,7 +67,7 @@ function Home({ isAnimationDone, night }) {
   const messagesWindowRef = useRef();
 
   //custom hooks
-  const { fabPose, menuBarPose, messagesPose, homePose } = useIntroAnimation(false, isAnimationDone);
+  const { fabPose, menuBarPose, messagesPose, homePose } = useIntroAnimation(true, isAnimationDone);
   const canHover = useCanHover();
   const isHoveringMessages = useHovered();
   const isHoveringCompose = useHovered();

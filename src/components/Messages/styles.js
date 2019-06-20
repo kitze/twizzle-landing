@@ -2,9 +2,8 @@ import styled from 'styled-components';
 import flex from 'styles/flex';
 import posed from 'react-pose';
 import FontAwesomeIcon from 'icons/Icon.js';
-
 //mixins
-import { hover, applyTheme, getThemeColor } from 'styles/mixins';
+import { applyTheme, getThemeColor, hover } from 'styles/mixins';
 import { smaller } from 'styles/responsive';
 
 export const Messages = styled.div(
@@ -66,7 +65,7 @@ export const Title = styled.div({});
 
 const Animated = posed.a({
   exit: { x: ({ index }) => -50 + index * 5, opacity: 0 },
-  enter: { x: 0, opacity: 1, delay: ({ index }) => 1000 + index * 100 }
+  enter: { x: 0, opacity: 1, delay: ({ index }) => 700 + index * 100 }
 });
 
 export const Message = {
