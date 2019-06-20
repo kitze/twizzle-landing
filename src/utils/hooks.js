@@ -52,12 +52,13 @@ export const useVisiblePose = initial => {
 };
 
 export const useGoogleAnalytics = (id, startLoading) => {
-  if (!id) {
-    return;
-  }
 
   useEffect(
     () => {
+      if (!id) {
+        return;
+      }
+
       if (startLoading) {
         let script = document.createElement('script');
         script.type = 'text/javascript';

@@ -3323,11 +3323,6 @@ del@^3.0.0:
     pify "^3.0.0"
     rimraf "^2.2.8"
 
-delay@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/delay/-/delay-4.3.0.tgz#efeebfb8f545579cb396b3a722443ec96d14c50e"
-  integrity sha512-Lwaf3zVFDMBop1yDuFZ19F9WyGcZcGacsbdlZtWjQmM50tOcMntm1njF/Nb/Vjij3KaSvCF+sEYGKrrjObu2NA==
-
 delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
@@ -3443,10 +3438,10 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dom-confetti@~0.0.11:
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/dom-confetti/-/dom-confetti-0.0.15.tgz#fd7dd6888da3dc6b54fd53326c8fa826ef25106b"
-  integrity sha512-KJKrmHcydwoS6bTD0wVM/L7LZz1rQNJA+Y3Zw9ZVYNpx5efqoVwIY2rqY/F2sEpJuGGCRff/o8bAmfQ8KO4Grw==
+dom-confetti@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/dom-confetti/-/dom-confetti-0.1.1.tgz#f53c355301286430e9f500567adac5041c827468"
+  integrity sha512-cyTs35FOqOlm+9rC8C5p0BFo0aHR2t6VWHdXmvgUEFHsF/P7tZeS5nw71oX6NifJrlxOmZ6VcmCH/hn99mqaAA==
 
 dom-converter@^0.2:
   version "0.2.0"
@@ -7365,11 +7360,11 @@ postcss-custom-media@^7.0.7:
     postcss "^7.0.14"
 
 postcss-custom-properties@^8.0.9:
-  version "8.0.10"
-  resolved "https://registry.yarnpkg.com/postcss-custom-properties/-/postcss-custom-properties-8.0.10.tgz#e8dc969e1e15c555f0b836b7f278ef47e3cdeaff"
-  integrity sha512-GDL0dyd7++goDR4SSasYdRNNvp4Gqy1XMzcCnTijiph7VB27XXpJ8bW/AI0i2VSBZ55TpdGhMr37kMSpRfYD0Q==
+  version "8.0.11"
+  resolved "https://registry.yarnpkg.com/postcss-custom-properties/-/postcss-custom-properties-8.0.11.tgz#2d61772d6e92f22f5e0d52602df8fae46fa30d97"
+  integrity sha512-nm+o0eLdYqdnJ5abAJeXp4CEU1c1k+eB2yMCvhgzsds/e0umabFrN6HoTy/8Q4K5ilxERdl/JD1LO5ANoYBeMA==
   dependencies:
-    postcss "^7.0.14"
+    postcss "^7.0.17"
     postcss-values-parser "^2.0.1"
 
 postcss-custom-selectors@^5.1.2:
@@ -7908,7 +7903,7 @@ postcss-values-parser@^2.0.0, postcss-values-parser@^2.0.1:
     indexes-of "^1.0.1"
     uniq "^1.0.1"
 
-postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.2, postcss@^7.0.5, postcss@^7.0.6:
+postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.17, postcss@^7.0.2, postcss@^7.0.5, postcss@^7.0.6:
   version "7.0.17"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.17.tgz#4da1bdff5322d4a0acaab4d87f3e782436bad31f"
   integrity sha512-546ZowA+KZ3OasvQZHsbuEpysvwTZNGJv9EfyCQdsIDltPSWHAeTQ5fQy/Npi2ZDtLI3zs7Ps/p6wThErhm9fQ==
@@ -8214,12 +8209,12 @@ react-dev-utils@^9.0.1:
     strip-ansi "5.2.0"
     text-table "0.2.0"
 
-react-dom-confetti@^0.0.10:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/react-dom-confetti/-/react-dom-confetti-0.0.10.tgz#6cde7af4af974ecf98ddf9da95c938144c68a4f0"
-  integrity sha512-EJMUmD9Z3/87wIjyQic5ZGd2beHE9K50vxouLdV+yPcBitlsVznBXKX900xEbzQ/DOMt+TycEg2CvB/V+pwJtQ==
+react-dom-confetti@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-dom-confetti/-/react-dom-confetti-0.1.1.tgz#f9d611110413faed8da72de1f47fbce78df637b9"
+  integrity sha512-QT2orDvHChdhIUU7HZtx0kiEMiBtZKDfPqzfoku7bftvLM5t7d1fbQX0JO8sw+tDVWJFgceNJtkq6bv9V/eXQQ==
   dependencies:
-    dom-confetti "~0.0.11"
+    dom-confetti "0.1.1"
 
 react-dom@^16.8.6:
   version "16.8.6"
@@ -8236,17 +8231,17 @@ react-error-overlay@^5.1.6:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.6.tgz#0cd73407c5d141f9638ae1e0c63e7b2bf7e9929d"
   integrity sha512-X1Y+0jR47ImDVr54Ab6V9eGk0Hnu7fVWGeHQSOXHf/C2pF9c6uy3gef8QUeuUiWlNb0i08InPSE5a/KJzNzw1Q==
 
-react-hanger@^1.0.8:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/react-hanger/-/react-hanger-1.2.0.tgz#26d3ccdebc7bd561640de6239fb9250a9c4834cd"
-  integrity sha512-YKMFa4wkWb8pvsxSX9F6atEpsvxfddbfyIv5TmReYs/0oWOZrGIYmVY95kQOX0bnsyy3xRSnjyv62+uZqzZrlQ==
+react-hanger@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-hanger/-/react-hanger-2.0.0.tgz#c0d3e71f09995d5c9434ca85e743b0fa38058c33"
+  integrity sha512-lJsnEgZl+01N9WLPjbv2HZllKIyfNDh4TKZ3tudEVY8VpRmO2gtDp3fWUKuUmp05uwQL/4xf+q10yzPK3/dQ0g==
 
 react-is@^16.6.0, react-is@^16.8.1, react-is@^16.8.4:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
-react-pose@^4.0.1:
+react-pose@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/react-pose/-/react-pose-4.0.8.tgz#91bdfafde60e4096e7878a35dcc77715bed68f24"
   integrity sha512-WN/583nKJZkKmKg5ha+eErOGWF9GV6A5EngC7WHQX5b910X9rTlOlxzdKlUy/dDcsTRMZEtHV0Sy2gLPYsVQCQ==
@@ -9346,7 +9341,7 @@ style-value-types@^3.0.6, style-value-types@^3.1.4:
   dependencies:
     hey-listen "^1.0.8"
 
-styled-components@^4.3.1:
+styled-components@^4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-4.3.2.tgz#4ca81918c812d3006f60ac5fdec7d6b64a9509cc"
   integrity sha512-NppHzIFavZ3TsIU3R1omtddJ0Bv1+j50AKh3ZWyXHuFvJq1I8qkQ5mZ7uQgD89Y8zJNx2qRo6RqAH1BmoVafHw==
