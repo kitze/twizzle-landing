@@ -1,65 +1,12 @@
 import React from 'react';
-import delay from 'delay';
 
 import { LoadScript } from 'components/LoadScript';
 import * as S from './styles';
 
 //icons
 import faDownload from '../../icons/download.svg';
-import { isDev } from 'utils/dev-prod';
-import { GetLicenseQuery } from '../../api/queries';
-import { graphQLClient } from '../../api/client';
-import { useRouter } from 'react-tiniest-router';
-import { routes } from '../../config/routes';
 
-//env
-const { REACT_APP_PADDLE_VENDOR, REACT_APP_PADDLE_PRODUCT_ID } = process.env;
-
-const canBuyInDev = true;
-
-function BuyButton({ startLoading }) {
-  const { goTo } = useRouter();
-
-  const buy = async () => {
-    if (isDev) {
-      goTo(routes.checkout);
-      return null;
-      if (canBuyInDev === false) {
-        return alert('Buying app...');
-      }
-    }
-
-    if (window) {
-      const { Paddle } = window;
-      await Paddle.Setup({ vendor: parseInt(REACT_APP_PADDLE_VENDOR) });
-      Paddle.Checkout.open({
-        product: parseInt(REACT_APP_PADDLE_PRODUCT_ID),
-        allowQuantity: false,
-        quantity: 1,
-        successCallback: async result => {
-          console.log('result', result);
-          const { checkout } = result;
-          console.log('checkout', checkout.completed, checkout.id);
-          if (checkout.completed) {
-            await delay(1000);
-            try {
-              const { payment } = await graphQLClient.request(GetLicenseQuery, {
-                checkoutId: checkout.id
-              });
-              if (payment && payment.license) {
-                console.log('payment.license.id', payment.license.id);
-                alert(`Your license is --> ${payment.license.id}`);
-              } else {
-                console.error('No license found ...');
-              }
-            } catch (err) {
-              console.error(err);
-            }
-          }
-        }
-      });
-    }
-  };
+function BuyButton({ startLoading, buy }) {
 
   return (
     <LoadScript startLoading={startLoading} src="https://cdn.paddle.com/paddle/paddle.js">

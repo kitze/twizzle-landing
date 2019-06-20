@@ -164,3 +164,13 @@ export const useLoadScript = ({ startLoading, src }) => {
 
   return state;
 };
+
+export const useDelay = int => {
+  const [done, setDone] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setDone(true);
+    }, int)
+  }, []);
+  return done;
+}

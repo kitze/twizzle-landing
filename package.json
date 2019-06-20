@@ -22,7 +22,8 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject"
+    "eject": "react-app-rewired eject",
+    "plop": "plop"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,12 +35,16 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/react": "^16.8.21",
+    "@types/react-dom": "^16.8.4",
+    "@types/styled-components": "^4.1.16",
     "babel-plugin-import": "^1.11.0",
     "babel-plugin-inline-react-svg": "^1.0.1",
     "babel-plugin-styled-components": "^1.8.0",
     "customize-cra": "^0.2.13",
     "prettier": "^1.18.2",
     "react-app-rewired": "^2.1.3",
-    "react-scripts": "^3.0.1"
+    "react-scripts": "^3.0.1",
+    "typescript": "^3.5.2"
   }
 }
