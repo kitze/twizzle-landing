@@ -21,7 +21,7 @@ const CheckoutPage = () => {
     params: { checkoutId }
   } = useRouter();
 
-  const done = useDelay(1300);
+  const done = useDelay(2000);
   const { data, loading, retry } = useQuery(GetLicenseQuery, { start: done, variables: { checkoutId } });
   const isLoading = loading || !done;
 
