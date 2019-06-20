@@ -30,8 +30,7 @@ const CheckoutPage = () => {
       {isLoading && <div>Getting license...</div>}
       {!isLoading &&
         (() => {
-          const { payment } = data;
-          const hasLicense = payment && payment.license;
+          const hasLicense = data && data.payment && data.payment.license;
           if (!hasLicense) {
             return (
               <S.LicenseWrap>
@@ -41,6 +40,7 @@ const CheckoutPage = () => {
               </S.LicenseWrap>
             );
           } else {
+            const { payment } = data;
             return (
               <S.LicenseWrap>
                 <S.Text>Your license code is:</S.Text>
