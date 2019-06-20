@@ -30,17 +30,9 @@ All of the hooks are in [utils/hooks.js](https://github.com/kitze/twizzy-landing
 - `useToggleBodyClass` - toggle a body class based on a boolean. Used to trigger `dark/light` and `scroll/no-scroll` classes on the `body` tag.
 - `useGoogleAnalytics` - inserts a google analytics script, but only when the app is ready
 - `useMousePosition` - track the mouse position. It's used to detect if the user is over the menu bar, otherwise the tweet composer gets glitchy.
+- `useLoadScript` - appends a script tag to the head of the page (used to load the Paddle script after the page is loaded)
 
 I'll move these hooks to [react-hanger](https://github.com/kitze/react-hanger) soon.
-
-## ⏸️ Suspense and `LoadScript`
-Yeah, yeah, I know we shouldn't use `react-cache` yet, but YOLO.  
-
-I made this [LoadScript](https://github.com/kitze/twizzy-landing/blob/master/src/components/Script/index.js#L26-L33) component to delay the loading of the Paddle script for payments until the page is ready. 
-- I made a custom component because `Suspense` wants you to put alternative UI in the `fallback` prop, and I didn't want an alternative UI, I just wanted the `Buy` button to be disabled until the script is ready, so I used render props
-- When the page is done with loading, it sets `startLoading` to true and it starts loading the Paddle script. 
-- Until the script is ready, the `Buy` button is disabled. The user woulnd't click the button in the first few seconds anyway.
-- Credit goes to [the-platform](https://github.com/palmerhq/the-platform/blob/master/src/Script.tsx) for the `Script` component.
 
 ## 🏝️ Desert background
 
