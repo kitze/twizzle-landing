@@ -14,6 +14,7 @@
     "react-dom-confetti": "^0.0.10",
     "react-hanger": "^1.0.8",
     "react-pose": "^4.0.1",
+    "react-tiniest-router": "^0.1.0",
     "styled-components": "^4.3.1",
     "styles-debugger": "^0.0.5"
   },

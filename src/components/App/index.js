@@ -36,7 +36,7 @@ import useIntroAnimation from './use-intro-animation';
 
 import 'focus-visible';
 import { routes } from '../../config/routes';
-import useRouter from '../Router/use-router';
+import {useRouter} from 'react-tiniest-router';
 
 //env
 const { REACT_APP_ANALYTICS_ID, REACT_APP_DOWNLOAD_LINK } = process.env;
@@ -69,7 +69,7 @@ function Home({isAnimationDone}) {
   const windowCenter = useFindElementCenter(messagesWindowRef);
   const { y: mouseY } = useMousePosition(isHoveringCompose.value);
   const clock = useClock();
-  const { openPage } = useRouter();
+  const { goTo } = useRouter();
 
   // side effects
   useGoogleAnalytics(REACT_APP_ANALYTICS_ID, isAnimationDone.value);
@@ -173,7 +173,7 @@ function Home({isAnimationDone}) {
             <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">
               View Source
             </S.Link>
-            <S.Link onClick={() => openPage(routes.license)}>Retrieve license</S.Link>
+            <S.Link onClick={() => goTo(routes.license)}>Retrieve license</S.Link>
           </S.Links>
         </S.Footer>
       </S.Home>

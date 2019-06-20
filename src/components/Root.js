@@ -1,5 +1,5 @@
 import React from 'react';
-import useRouter from './Router/use-router';
+import { useRouter } from 'react-tiniest-router';
 import { routes } from '../config/routes';
 import App from 'components/App';
 import { useBoolean } from 'react-hanger';

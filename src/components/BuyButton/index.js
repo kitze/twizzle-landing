@@ -9,7 +9,7 @@ import faDownload from '../../icons/download.svg';
 import { isDev } from 'utils/dev-prod';
 import { GetLicenseQuery } from '../../api/queries';
 import { graphQLClient } from '../../api/client';
-import useRouter from '../Router/use-router';
+import { useRouter } from 'react-tiniest-router';
 import { routes } from '../../config/routes';
 
 //env
@@ -18,11 +18,11 @@ const { REACT_APP_PADDLE_VENDOR, REACT_APP_PADDLE_PRODUCT_ID } = process.env;
 const canBuyInDev = true;
 
 function BuyButton({ startLoading }) {
-  const { openPage } = useRouter();
+  const { goTo } = useRouter();
 
   const buy = async () => {
     if (isDev) {
-      openPage(routes.checkout);
+      goTo(routes.checkout);
       return null;
       if (canBuyInDev === false) {
         return alert('Buying app...');

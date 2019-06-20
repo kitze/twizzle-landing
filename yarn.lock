@@ -8262,6 +8262,14 @@ react-scripts@^3.0.1:
   optionalDependencies:
     fsevents "2.0.6"
 
+react-tiniest-router@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-tiniest-router/-/react-tiniest-router-0.1.0.tgz#8d01ac0c4fec127cdbaf76d0345d55019747dd2a"
+  integrity sha512-dmVHE7iMnvLOvpa/B/5m4fcavi0cTE98L8zH4VUAtIqI8Leem+wbDrWgVuXozGkGjYpeGSDtQHm9BivK50j4OA==
+  dependencies:
+    path-match "^1.2.4"
+    query-string "^6.7.0"
+
 react@^16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
