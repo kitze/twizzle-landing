@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { usePose, useVisiblePose } from 'utils/hooks';
 import { devAndProd } from 'utils/dev-prod';
 import sequence from 'utils/sequence';

@@ -4,7 +4,7 @@ import { LoadScript } from 'components/LoadScript';
 import * as S from './styles';
 
 //icons
-import faDownload from '../../icons/download.svg';
+import faShopping from '../../icons/shopping-cart.svg';
 
 function BuyButton({ startLoading, buy }) {
 
@@ -22,7 +22,7 @@ function BuyButton({ startLoading, buy }) {
             }
           }}
         >
-          <S.AppleIcon icon={faDownload} />
+          <S.AppleIcon icon={faShopping} />
           <span>Buy now</span>
         </S.Button>
       )}

@@ -4,18 +4,17 @@
   "private": true,
   "dependencies": {
     "date-fns": "^1.29.0",
-    "delay": "^4.3.0",
     "focus-visible": "^4.1.5",
     "graphql-request": "^1.8.2",
     "path-match": "^1.2.4",
     "query-string": "^6.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-dom-confetti": "^0.0.10",
+    "react-dom-confetti": "^0.1.1",
     "react-hanger": "^1.0.8",
-    "react-pose": "^4.0.1",
+    "react-pose": "^4.0.8",
     "react-tiniest-router": "^0.1.0",
-    "styled-components": "^4.3.1",
+    "styled-components": "^5.0.0-beta.3",
     "styles-debugger": "^0.0.5"
   },
   "scripts": {
