@@ -4,6 +4,7 @@
 - 🏫 [React Academy](https://reactacademy.io) - Interactive React and GraphQL workshops
 - 💻 [Sizzy](https://sizzy.co) - A tool for testing responsive design on multiple devices at once
 - 🤖 [JSUI](https://github.com/kitze/JSUI) - A powerful UI toolkit for managing JavaScript apps
+- 📹 [YouTube Vlog](https://youtube.com/kitze) - Watch my sad developer life
 
 ---
 
