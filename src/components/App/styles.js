@@ -197,6 +197,9 @@ export const TextContent = styled(
   })
 );
 
+export const Platforms = styled.div({
+    fontSize: 12
+});
 
 
 
