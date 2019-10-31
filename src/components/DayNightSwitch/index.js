@@ -6,20 +6,16 @@ import faMoon from '../../icons/moon-inv.svg';
 
 //glamorous
 import * as S from './styles';
+import { onEnterAndClick } from 'utils/utils';
 
 function DayNightSwitch({ value, onChange }) {
   return (
     <ThemeProvider theme={{ clicked: value }}>
       <div>
         <S.Wrapper
-          onClick={onChange}
+          {...onEnterAndClick(onChange)}
           role="button"
           tabIndex={0}
-          onKeyPress={e => {
-            if (e.which === 13 || e.which === 32) {
-              onChange(e);
-            }
-          }}
         >
           <S.DayNightSwitch>
             <S.Stars>

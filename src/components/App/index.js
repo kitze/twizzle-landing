@@ -16,7 +16,7 @@ import DayNightSwitch from 'components/DayNightSwitch';
 import MenuBar from 'components/MenuBar';
 import Compose from 'components/Compose';
 import ToggleCount from 'components/ToggleCount';
-import BuyButton from 'components/DownloadButton';
+import DownloadButton from 'components/DownloadButton';
 import Background from 'components/Background';
 import Footer from 'components/Footer';
 
@@ -34,11 +34,11 @@ import {
 import useIntroAnimation from './use-intro-animation';
 
 import 'focus-visible';
-import { isDev } from '../../utils/dev-prod';
+import DownloadModal from '../DownloadModal';
+import { useBoolean } from 'react-hanger';
 
 //env
 const { REACT_APP_ANALYTICS_ID, REACT_APP_DOWNLOAD_LINK } = process.env;
-const canBuyInDev = true;
 
 const redirectDownload = () => {
   if (window.location.href.includes('get-app')) {
@@ -69,6 +69,7 @@ function Home({ isAnimationDone, night }) {
   const windowCenter = useFindElementCenter(messagesWindowRef);
   const { y: mouseY } = useMousePosition(isHoveringCompose.value);
   const clock = useClock();
+  const showModal = useBoolean(false);
 
   // side effects
   useGoogleAnalytics(REACT_APP_ANALYTICS_ID, isAnimationDone.value);
@@ -92,16 +93,9 @@ function Home({ isAnimationDone, night }) {
     setComposeOpen(true);
   };
 
-  const buy = async () => {
-    if (isDev) {
-      if (canBuyInDev === false) {
-        return alert('Buying app...');
-      }
-    }
-  };
-
   return (
     <S.Home>
+      {showModal.value && <DownloadModal onClose={showModal.setFalse} />}
       <S.MainSection>
         <Background night={night.value} startLoadingLight={isAnimationDone.value} show={isBig} />
 
@@ -157,7 +151,7 @@ function Home({ isAnimationDone, night }) {
 
             <A.Space />
 
-            <BuyButton onClick={buy} startLoading={isAnimationDone.value} />
+            <DownloadButton onClick={showModal.setTrue} startLoading={isAnimationDone.value} />
 
             <A.Space />
 
