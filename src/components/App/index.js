@@ -18,6 +18,7 @@ import Compose from 'components/Compose';
 import ToggleCount from 'components/ToggleCount';
 import BuyButton from 'components/DownloadButton';
 import Background from 'components/Background';
+import Footer from 'components/Footer';
 
 //hooks
 import {
@@ -169,24 +170,7 @@ function Home({ isAnimationDone, night }) {
           </S.TextContent>
         </S.Content>
       </S.MainSection>
-      <S.Footer initialPose="hidden" pose={composeIsOpen ? 'invisible' : menuBarPose}>
-        <S.Links>
-          <S.Link target="_blank" rel="noopener" href="https://twitter.com/thekitze">
-            Made by @thekitze
-          </S.Link>
-          <S.Link target="_blank" rel="noopener" href="https://sizzy.co">
-            Sizzy
-          </S.Link>
-          <S.Link href="privacy.html">Privacy</S.Link>
-          <S.Link href="disclaimer.html">Disclaimer</S.Link>
-          <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzle">
-            App Source
-          </S.Link>
-          <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzle-landing">
-            Website Source
-          </S.Link>
-        </S.Links>
-      </S.Footer>
+      <Footer composeIsOpen={composeIsOpen} menuBarPose={menuBarPose} />
     </S.Home>
   );
 }
