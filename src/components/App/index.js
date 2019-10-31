@@ -52,7 +52,7 @@ function Home({ isAnimationDone, night }) {
   const [toggleCount, setToggleCount] = useState(0);
 
   const [text, setText] = useState(
-    `Woah! With twizzy.app I can use Twitter DMs and tweet directly from the menubar. Sweet! 😄️`
+    `Woah! With twizzle.app I can use Twitter DMs and tweet directly from the menubar. Sweet! 😄️`
   );
 
   // refs
@@ -60,7 +60,8 @@ function Home({ isAnimationDone, night }) {
   const messagesWindowRef = useRef();
 
   //custom hooks
-  const { fabPose, menuBarPose, messagesPose, homePose } = useIntroAnimation(true, isAnimationDone);
+  const isInSizzy = window.__sizzy;
+  const { fabPose, menuBarPose, messagesPose, homePose } = useIntroAnimation(!isInSizzy, isAnimationDone);
   const canHover = useCanHover();
   const isHoveringMessages = useHovered();
   const isHoveringCompose = useHovered();
@@ -85,7 +86,7 @@ function Home({ isAnimationDone, night }) {
 
   const tweetProgress = () => {
     setText(
-      `I'm having too much fun with the day/night switch on twizzy.app 🤦️ ${toggleCount} times so far! 😂️`
+      `I'm having too much fun with the day/night switch on twizzle.app 🤦️ ${toggleCount} times so far! 😂️`
     );
     setComposeOpen(true);
   };
@@ -136,7 +137,7 @@ function Home({ isAnimationDone, night }) {
           <A.Space huge />
 
           <S.TextContent isAnimationDone={isAnimationDone.value} pose={homePose}>
-            <S.Title> Twizzy </S.Title>
+            <S.Title> Twizzle </S.Title>
 
             <A.Space huge />
             <S.Subtitle>
@@ -170,13 +171,18 @@ function Home({ isAnimationDone, night }) {
       </S.MainSection>
       <S.Footer initialPose="hidden" pose={composeIsOpen ? 'invisible' : menuBarPose}>
         <S.Links>
-          <S.Link href="https://twitter.com/thekitze">Made by @thekitze</S.Link>
+          <S.Link target="_blank" rel="noopener" href="https://twitter.com/thekitze">
+            Made by @thekitze
+          </S.Link>
+          <S.Link target="_blank" rel="noopener" href="https://sizzy.co">
+            Sizzy
+          </S.Link>
           <S.Link href="privacy.html">Privacy</S.Link>
           <S.Link href="disclaimer.html">Disclaimer</S.Link>
-          <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy">
+          <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzle">
             App Source
           </S.Link>
-          <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">
+          <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzle-landing">
             Website Source
           </S.Link>
         </S.Links>

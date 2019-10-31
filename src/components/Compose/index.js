@@ -14,7 +14,7 @@ import image from '../../icons/image.svg';
 import bars from '../../icons/bars.svg';
 
 function Compose({ visible, text, onMouseLeave, onMouseOver, setText, composeIsOpen, setComposeOpen }) {
-  const tweet = () => window.open(`http://twitter.com/share?text=${text}&url=https://twizzy.app`);
+  const tweet = () => window.open(`http://twitter.com/share?text=${text}&url=https://twizzle.app`);
   const alertForImage = () => alert('You can add images and gifs from the real app 😜️');
   const alertForPolls = () => alert('You can attach polls from the real app 😜️');
   const remaining = 240 - text.length;
