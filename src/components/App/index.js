@@ -16,7 +16,7 @@ import DayNightSwitch from 'components/DayNightSwitch';
 import MenuBar from 'components/MenuBar';
 import Compose from 'components/Compose';
 import ToggleCount from 'components/ToggleCount';
-import BuyButton from 'components/BuyButton';
+import BuyButton from 'components/DownloadButton';
 import Background from 'components/Background';
 
 //hooks
@@ -33,17 +33,10 @@ import {
 import useIntroAnimation from './use-intro-animation';
 
 import 'focus-visible';
-import { routes } from '../../config/routes';
-import { useRouter } from 'react-tiniest-router';
 import { isDev } from '../../utils/dev-prod';
 
 //env
-const {
-  REACT_APP_ANALYTICS_ID,
-  REACT_APP_PADDLE_VENDOR,
-  REACT_APP_PADDLE_PRODUCT_ID,
-  REACT_APP_DOWNLOAD_LINK
-} = process.env;
+const { REACT_APP_ANALYTICS_ID, REACT_APP_DOWNLOAD_LINK } = process.env;
 const canBuyInDev = true;
 
 const redirectDownload = () => {
@@ -74,7 +67,6 @@ function Home({ isAnimationDone, night }) {
   const windowCenter = useFindElementCenter(messagesWindowRef);
   const { y: mouseY } = useMousePosition(isHoveringCompose.value);
   const clock = useClock();
-  const { goTo } = useRouter();
 
   // side effects
   useGoogleAnalytics(REACT_APP_ANALYTICS_ID, isAnimationDone.value);
@@ -103,22 +95,6 @@ function Home({ isAnimationDone, night }) {
       if (canBuyInDev === false) {
         return alert('Buying app...');
       }
-    }
-
-    if (window) {
-      const { Paddle } = window;
-      await Paddle.Setup({ vendor: parseInt(REACT_APP_PADDLE_VENDOR) });
-      Paddle.Checkout.open({
-        product: parseInt(REACT_APP_PADDLE_PRODUCT_ID),
-        allowQuantity: false,
-        quantity: 1,
-        successCallback: async result => {
-          const { checkout } = result;
-          if (checkout.completed) {
-            goTo(routes.checkout, { checkoutId: checkout.id });
-          }
-        }
-      });
     }
   };
 
@@ -179,7 +155,7 @@ function Home({ isAnimationDone, night }) {
 
             <A.Space />
 
-            <BuyButton buy={buy} startLoading={isAnimationDone.value} />
+            <BuyButton onClick={buy} startLoading={isAnimationDone.value} />
 
             <A.Space />
 
@@ -194,13 +170,15 @@ function Home({ isAnimationDone, night }) {
       </S.MainSection>
       <S.Footer initialPose="hidden" pose={composeIsOpen ? 'invisible' : menuBarPose}>
         <S.Links>
-          <S.Link href="mailto:contact@twizzy.app">Contact</S.Link>
+          <S.Link href="https://twitter.com/thekitze">Made by @thekitze</S.Link>
           <S.Link href="privacy.html">Privacy</S.Link>
           <S.Link href="disclaimer.html">Disclaimer</S.Link>
-          <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">
-            View Source
+          <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy">
+            App Source
           </S.Link>
-          {/*<S.Link onClick={() => goTo(routes.license)}>Retrieve license</S.Link>*/}
+          <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">
+            Website Source
+          </S.Link>
         </S.Links>
       </S.Footer>
     </S.Home>

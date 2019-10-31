@@ -8,7 +8,6 @@ const circleWidth = 27;
 const sideOffset = 5;
 const transitionTime = 200;
 
-
 export const Wrapper = styled.div({
   display: 'inline-block',
   borderRadius: 17,
