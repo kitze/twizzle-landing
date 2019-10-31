@@ -4,6 +4,8 @@ import { useBoolean } from 'react-hanger';
 import { ThemeProvider } from 'styled-components';
 import themes from 'styles/themes';
 import { useToggleBodyClass } from '../utils/hooks';
+import { hot } from 'react-hot-loader/root';
+import { isDev } from 'utils/dev-prod';
 
 const Root = () => {
   const isAnimationDone = useBoolean(false);
@@ -17,4 +19,4 @@ const Root = () => {
   );
 };
 
-export default Root;
+export default isDev ? hot(Root) : Root;
