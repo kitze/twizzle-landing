@@ -1,15 +1,34 @@
 import styled from 'styled-components';
 import { whiteish } from 'styled-mixins';
+import { smaller } from '../../styles/responsive';
 
-export const Modal = styled.div({
-  '.rodal-dialog': {
-    backgroundColor: '#1f212f',
-    color: 'white',
-    height: '500px !important'
-  },
-  '.rodal-mask': {
-    backgroundColor: 'rgba(0, 0, 0, 0.77)'
-  }
+export const Modal = styled.div(({ size }) => {
+  return {
+    '.Checkbox': {
+      top: 0
+    },
+    '.rodal': {
+      display: 'flex'
+    },
+    '.rodal-dialog': {
+      transition: 'all 100ms linear',
+      minWidth: 350,
+      borderRadius: 5,
+      maxWidth: 450,
+      position: 'relative !important',
+      margin: 'auto',
+      backgroundColor: '#1f212f',
+      color: 'white',
+      padding: 25,
+      [smaller(400)]: {
+        width: '100%',
+        minWidth: 'auto'
+      }
+    },
+    '.rodal-mask': {
+      backgroundColor: 'rgba(0, 0, 0, 0.77)'
+    }
+  };
 });
 export const Input = styled.input({
   fontSize: 18,

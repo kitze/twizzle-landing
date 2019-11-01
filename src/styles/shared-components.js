@@ -1,7 +1,6 @@
-import flex from '../styles/flex';
 import styled from 'styled-components';
 import { Horizontal as $Horizontal, Vertical as $Vertical } from './flex-components';
-import {hover, whenTheme} from "styles/mixins";
+import { getThemeColor, hover, whenTheme } from 'styles/mixins';
 
 export const Horizontal = $Horizontal;
 export const Vertical = $Vertical;
@@ -19,7 +18,6 @@ export const Space = styled('div')(
   })
 );
 
-
 export const Hover = styled.span(
   {
     backgroundColor: 'rgba(255,255,255, 0.2)',
@@ -33,4 +31,25 @@ export const Hover = styled.span(
   whenTheme('light', {
     backgroundColor: 'rgba(255,255,255, 0.5)'
   })
+);
+
+export const Link = styled.a(
+  {
+    textDecoration: 'none',
+    borderBottom: '1px solid transparent',
+    transition: 'all 100ms linear',
+    marginRight: 20,
+    '&:last-of-type': {
+      margin: 0
+    },
+    ...hover({
+      borderBottom: '1px solid white'
+    })
+  },
+  ({ showBorder }) => ({
+    ...(showBorder && {
+      textDecoration: 'underline'
+    })
+  }),
+  getThemeColor('text')
 );

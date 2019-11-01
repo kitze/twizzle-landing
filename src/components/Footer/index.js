@@ -1,25 +1,26 @@
 import React from 'react';
 
 import * as S from './styles';
+import * as A from 'styles/shared-components';
 
 const Footer = ({ composeIsOpen, menuBarPose }) => {
   return (
     <S.Footer initialPose="hidden" pose={composeIsOpen ? 'invisible' : menuBarPose}>
       <S.Links>
-        <S.Link target="_blank" rel="noopener" href="https://twitter.com/thekitze">
+        <A.Link target="_blank" rel="noopener" href="https://twitter.com/thekitze">
           Made by @thekitze
-        </S.Link>
-        <S.Link target="_blank" rel="noopener" href="https://sizzy.co">
+        </A.Link>
+        <A.Link target="_blank" rel="noopener" href="https://sizzy.co">
           Sizzy
-        </S.Link>
-        <S.Link href="privacy.html">Privacy</S.Link>
-        <S.Link href="disclaimer.html">Disclaimer</S.Link>
-        <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzle">
+        </A.Link>
+        <A.Link href="privacy.html">Privacy</A.Link>
+        <A.Link href="disclaimer.html">Disclaimer</A.Link>
+        <A.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzle">
           App Source
-        </S.Link>
-        <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzle-landing">
+        </A.Link>
+        <A.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzle-landing">
           Website Source
-        </S.Link>
+        </A.Link>
       </S.Links>
     </S.Footer>
   );

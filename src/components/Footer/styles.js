@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import flex from 'styles/flex';
-import { getThemeColor, hover } from 'styles/mixins';
 import pose from 'react-pose';
 import { ELEMENTS, zIndexFor } from 'styles/zindex';
 import { smaller, smallerHeight } from 'styles/responsive';
@@ -50,19 +49,3 @@ export const Footer = styled(
   })
 );
 
-export const Link = styled.a(
-  {
-    textDecoration: 'none',
-    borderBottom: '1px solid transparent',
-    transition: 'all 100ms linear',
-    marginRight: 20,
-    '&:last-of-type': {
-      margin: 0
-    },
-    fontSize: 13,
-    ...hover({
-      borderBottom: '1px solid white'
-    })
-  },
-  getThemeColor('text')
-);
