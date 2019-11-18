@@ -23,8 +23,7 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "postbuild": "sed -i '' 's/DOWNLOAD_URL/${REACT_APP_DOWNLOAD_LINK}/g' build/netlify.toml",
+    "build": "sed -i '' 's/DOWNLOAD_URL/${REACT_APP_DOWNLOAD_LINK}/g' ./public/netlify.toml && react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
     "plop": "plop"
