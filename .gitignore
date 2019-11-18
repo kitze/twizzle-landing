@@ -6,7 +6,7 @@
 .pnp.js
 
 .idea
-
+_redirects.local
 
 # testing
 /coverage

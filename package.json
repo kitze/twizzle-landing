@@ -24,6 +24,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
+    "postbuild": "cp ./_redirects.local ./build/_redirects",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
     "plop": "plop"
@@ -44,7 +45,7 @@
     "babel-plugin-import": "^1.11.0",
     "babel-plugin-inline-react-svg": "^1.0.1",
     "babel-plugin-styled-components": "^1.8.0",
-    "customize-cra": "^0.2.13",
+    "customize-cra": "^0.9.1",
     "prettier": "^1.18.2",
     "react-app-rewire-hot-loader": "^2.0.1",
     "react-app-rewired": "^2.1.4",
