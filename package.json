@@ -6,7 +6,6 @@
     "axios": "^0.19.0",
     "date-fns": "^1.29.0",
     "focus-visible": "^4.1.5",
-    "graphql-request": "^1.8.2",
     "isemail": "^3.2.0",
     "layout-styled-components": "^0.1.11",
     "react": "^16.8.6",
@@ -23,7 +22,6 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "sed -i '' 's/DOWNLOAD_URL/${REACT_APP_DOWNLOAD_LINK}/g' ./public/netlify.toml && react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
     "plop": "plop"
