@@ -24,6 +24,7 @@
     "start": "react-app-rewired start",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
+    "build": "react-app-rewired build",
     "plop": "plop"
   },
   "eslintConfig": {
