@@ -9,7 +9,7 @@ import jsui from 'images/jsui.jpg';
 
 import * as L from 'layout-styled-components';
 
-const Product = ({ name, link, description, logo }) => {
+const Product = ({ name, sale, link, description, logo }) => {
   return (
     <S.Product target="_blank" rel="noopener" href={link}>
       <L.Vertical spaceAll={10} centerV>
@@ -17,6 +17,7 @@ const Product = ({ name, link, description, logo }) => {
           <S.Logo src={logo} />
           <S.Name>{name}</S.Name>
         </L.Horizontal>
+        {sale && <S.Description style={{ color: '#ffc2b8' }}>{sale}</S.Description>}
         <S.Description>{description}</S.Description>
       </L.Vertical>
     </S.Product>
@@ -30,6 +31,7 @@ const ProductList = () => {
         <Product
           link="https://sizzy.co"
           name="Sizzy"
+          sale="Up to 40% discount on Cyber Monday 🔥"
           description={`The browser for designers and developers. Stop wasting time on resizing your window and change the way you're developing and testing responsive apps.`}
           logo={sizzy}
         />

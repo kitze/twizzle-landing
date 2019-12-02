@@ -124,13 +124,11 @@ const DownloadModal = ({ onClose }) => {
               {clickedDownload.value && <S.Text>Downloading...</S.Text>}
               {!clickedDownload.value && (
                 <S.Button
-                  {...(enableDownload && {
-                    as: 'a',
-                    href: REACT_APP_DOWNLOAD_LINK,
-                    download: true
-                  })}
                   style={{ textDecoration: 'none', textAlign: 'center' }}
-                  onClick={clickedDownload.setTrue}
+                  onClick={() => {
+                    window.location.href = REACT_APP_DOWNLOAD_LINK;
+                    clickedDownload.setTrue();
+                  }}
                   disabled={!enableDownload}
                 >
                   {downloadLabel}
