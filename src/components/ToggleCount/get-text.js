@@ -1,5 +1,3 @@
-const { REACT_APP_DISCOUNT_1, REACT_APP_DISCOUNT_2, REACT_APP_DISCOUNT_3 } = process.env;
-
 export default (count, initialLimit) => {
   let text = '';
 
@@ -22,13 +20,13 @@ export default (count, initialLimit) => {
     text = `Omg what if it gives you a discount?!`;
   }
   if (count > 60) {
-    text = `LOL would someone give a discount for toggling a switch?`;
+    text = `LOL would someone give a discount for a free app?`;
   }
   if (count === 69) {
     text = 'Niiiiiiiice.';
   }
   if (count > 70) {
-    text = `Nah, a discount doesn't make sense ... right?`;
+    text = `OK you can stop now, that's enough.`;
   }
   if (count > 80) {
     text = `But damn if you're not persistent...`;
@@ -37,22 +35,22 @@ export default (count, initialLimit) => {
     text = `Ok, you're getting close now...`;
   }
   if (count >= 100) {
-    text = `Use the "${REACT_APP_DISCOUNT_1}" code for a 10% discount! 😁️`;
+    text = `Close to wasting half of your day on this for no reason.`;
   }
   if (count > 150) {
-    text = `DAMN IT! The discount wasn't enough?!`;
+    text = `DAMN IT! YOU'RE ANNOYING!`;
   }
   if (count > 200) {
-    text = `Trust me, there are no more discounts...`;
+    text = `Trust me, nothing's gonna happen...`;
   }
   if (count > 250) {
     text = `I told you to trust me. Am I a joke to you?`;
   }
   if (count >= 300) {
-    text = `*sigh* fine. You deserved it. Use "${REACT_APP_DISCOUNT_2}" for 15% off.`;
+    text = `*sigh* fine. Here's a virtual high five!`;
   }
   if (count >= 350) {
-    text = `But that's it, we're done here. Don't even bother`;
+    text = `But that's it, we're done here. Don't even bother.`;
   }
   if (count > 400) {
     text = `You're gonna do this forever right? I'm fine with that.`;
@@ -61,7 +59,7 @@ export default (count, initialLimit) => {
     text = `I AM TRYING TO SLEEP HERE!`;
   }
   if (count >= 500) {
-    text = `You. Are. Bananas. Here's the final discount code. Enjoy 20% off with "${REACT_APP_DISCOUNT_3}"`;
+    text = `You. Are. Bananas. You won this game. Tell your friends."`;
   }
 
   return text;

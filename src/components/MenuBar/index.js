@@ -1,21 +1,17 @@
 import React from 'react';
 import * as S from './styles';
+import { onEnterAndClick } from 'utils/utils';
 
-function MenuBar({ src, className, pose, initialPose, selected, children, onClick, icons = [], mainIcon }) {
+function MenuBar({ className, pose, initialPose, selected, onClick, icons = [], mainIcon }) {
   return (
     <S.MenuBar className={className} pose={pose} initialPose={initialPose}>
       <S.Icons>
         <S.Item
           className="feather"
           selected={selected}
-          onClick={onClick}
           role="button"
           tabIndex={0}
-          onKeyPress={e => {
-            if (e.which === 13 || e.which === 32) {
-              onClick(e);
-            }
-          }}
+          {...onEnterAndClick(onClick)}
         >
           <S.Icon icon={mainIcon} />
         </S.Item>

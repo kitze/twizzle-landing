@@ -1,5 +1,5 @@
 import kitze from 'images/kitze.jpg';
-import twizzy from 'images/twizzy.png';
+import twizzle from 'images/twizzle.png';
 import jsui from 'images/jsui.jpg';
 import sizzy from 'images/sizzy.jpg';
 import avatar3 from 'images/avatar-3.png';
@@ -15,10 +15,10 @@ export default [
     img: kitze
   },
   {
-    name: 'Twizzy',
-    username: 'twizzyapp',
+    name: 'Twizzle',
+    username: 'twizzleapp',
     message: `I *am* the app so I'm even more biased!`,
-    img: twizzy
+    img: twizzle
   },
   {
     name: 'Matthew',

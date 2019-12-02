@@ -16,8 +16,9 @@ import DayNightSwitch from 'components/DayNightSwitch';
 import MenuBar from 'components/MenuBar';
 import Compose from 'components/Compose';
 import ToggleCount from 'components/ToggleCount';
-import BuyButton from 'components/BuyButton';
+import DownloadButton from 'components/DownloadButton';
 import Background from 'components/Background';
+import Footer from 'components/Footer';
 
 //hooks
 import {
@@ -33,18 +34,11 @@ import {
 import useIntroAnimation from './use-intro-animation';
 
 import 'focus-visible';
-import { routes } from '../../config/routes';
-import { useRouter } from 'react-tiniest-router';
-import { isDev } from '../../utils/dev-prod';
+import DownloadModal from '../DownloadModal';
+import { useBoolean } from 'react-hanger';
 
 //env
-const {
-  REACT_APP_ANALYTICS_ID,
-  REACT_APP_PADDLE_VENDOR,
-  REACT_APP_PADDLE_PRODUCT_ID,
-  REACT_APP_DOWNLOAD_LINK
-} = process.env;
-const canBuyInDev = true;
+const { REACT_APP_ANALYTICS_ID, REACT_APP_DOWNLOAD_LINK } = process.env;
 
 const redirectDownload = () => {
   if (window.location.href.includes('get-app')) {
@@ -59,7 +53,7 @@ function Home({ isAnimationDone, night }) {
   const [toggleCount, setToggleCount] = useState(0);
 
   const [text, setText] = useState(
-    `Woah! With twizzy.app I can use Twitter DMs and tweet directly from the menubar. Sweet! 😄️`
+    `Woah! With twizzle.app I can use Twitter DMs and tweet directly from the menubar. Sweet! 😄️`
   );
 
   // refs
@@ -67,14 +61,15 @@ function Home({ isAnimationDone, night }) {
   const messagesWindowRef = useRef();
 
   //custom hooks
-  const { fabPose, menuBarPose, messagesPose, homePose } = useIntroAnimation(true, isAnimationDone);
+  const isInSizzy = window.__sizzy;
+  const { fabPose, menuBarPose, messagesPose, homePose } = useIntroAnimation(!isInSizzy, isAnimationDone);
   const canHover = useCanHover();
   const isHoveringMessages = useHovered();
   const isHoveringCompose = useHovered();
   const windowCenter = useFindElementCenter(messagesWindowRef);
   const { y: mouseY } = useMousePosition(isHoveringCompose.value);
   const clock = useClock();
-  const { goTo } = useRouter();
+  const showModal = useBoolean(false);
 
   // side effects
   useGoogleAnalytics(REACT_APP_ANALYTICS_ID, isAnimationDone.value);
@@ -93,37 +88,14 @@ function Home({ isAnimationDone, night }) {
 
   const tweetProgress = () => {
     setText(
-      `I'm having too much fun with the day/night switch on twizzy.app 🤦️ ${toggleCount} times so far! 😂️`
+      `I'm having too much fun with the day/night switch on twizzle.app 🤦️ ${toggleCount} times so far! 😂️`
     );
     setComposeOpen(true);
   };
 
-  const buy = async () => {
-    if (isDev) {
-      if (canBuyInDev === false) {
-        return alert('Buying app...');
-      }
-    }
-
-    if (window) {
-      const { Paddle } = window;
-      await Paddle.Setup({ vendor: parseInt(REACT_APP_PADDLE_VENDOR) });
-      Paddle.Checkout.open({
-        product: parseInt(REACT_APP_PADDLE_PRODUCT_ID),
-        allowQuantity: false,
-        quantity: 1,
-        successCallback: async result => {
-          const { checkout } = result;
-          if (checkout.completed) {
-            goTo(routes.checkout, { checkoutId: checkout.id });
-          }
-        }
-      });
-    }
-  };
-
   return (
     <S.Home>
+      {showModal.value && <DownloadModal onClose={showModal.setFalse} />}
       <S.MainSection>
         <Background night={night.value} startLoadingLight={isAnimationDone.value} show={isBig} />
 
@@ -160,7 +132,7 @@ function Home({ isAnimationDone, night }) {
           <A.Space huge />
 
           <S.TextContent isAnimationDone={isAnimationDone.value} pose={homePose}>
-            <S.Title> Twizzy </S.Title>
+            <S.Title> Twizzle </S.Title>
 
             <A.Space huge />
             <S.Subtitle>
@@ -179,7 +151,7 @@ function Home({ isAnimationDone, night }) {
 
             <A.Space />
 
-            <BuyButton buy={buy} startLoading={isAnimationDone.value} />
+            <DownloadButton onClick={showModal.setTrue} startLoading={isAnimationDone.value} />
 
             <A.Space />
 
@@ -192,17 +164,7 @@ function Home({ isAnimationDone, night }) {
           </S.TextContent>
         </S.Content>
       </S.MainSection>
-      <S.Footer initialPose="hidden" pose={composeIsOpen ? 'invisible' : menuBarPose}>
-        <S.Links>
-          <S.Link href="mailto:contact@twizzy.app">Contact</S.Link>
-          <S.Link href="privacy.html">Privacy</S.Link>
-          <S.Link href="disclaimer.html">Disclaimer</S.Link>
-          <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">
-            View Source
-          </S.Link>
-          {/*<S.Link onClick={() => goTo(routes.license)}>Retrieve license</S.Link>*/}
-        </S.Links>
-      </S.Footer>
+      <Footer composeIsOpen={composeIsOpen} menuBarPose={menuBarPose} />
     </S.Home>
   );
 }

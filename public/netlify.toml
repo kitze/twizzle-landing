@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/download"
+  to = "/DOWNLOAD_URL"
+  status = 301
