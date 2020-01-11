@@ -31,7 +31,7 @@ const ProductList = () => {
         <Product
           link="https://sizzy.co"
           name="Sizzy"
-          sale="Holiday Sale - Up to 30% discount 🎄"
+          // sale="Holiday Sale - Up to 30% discount 🎄"
           description={`The browser for designers and developers. Stop wasting time on resizing your window and change the way you're developing and testing responsive apps.`}
           logo={sizzy}
         />
