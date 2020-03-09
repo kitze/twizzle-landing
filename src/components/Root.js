@@ -10,7 +10,7 @@ import { isDev } from 'utils/dev-prod';
 const Root = () => {
   const isAnimationDone = useBoolean(false);
   const night = useBoolean(true);
-  useToggleBodyClass(night, ['dark', 'light']);
+  useToggleBodyClass(night.value, ['dark', 'light']);
 
   return (
     <ThemeProvider theme={themes[night.value ? 'dark' : 'light']}>

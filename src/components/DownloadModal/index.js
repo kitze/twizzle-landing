@@ -81,7 +81,7 @@ const DownloadModal = ({ onClose }) => {
   const disableSubscribe = loading.value || !isInputValid;
   const subscribing = loading.value;
   const hasSubscribed = subscribed.value;
-  const twitterLink = 'https://twitter.com/twizzleapp';
+  const twitterLink = 'https://twitter.com/twizzle_app';
   const showConfetti = clickedDownload.value || subscribed.value;
 
   useEffect(() => {
