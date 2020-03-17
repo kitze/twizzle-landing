@@ -16,7 +16,7 @@ export default [
   },
   {
     name: 'Twizzle',
-    username: 'twizzleapp',
+    username: 'twizzle_app',
     message: `I *am* the app so I'm even more biased!`,
     img: twizzle
   },

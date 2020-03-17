@@ -40,7 +40,7 @@ function Messages({ fabPose, onToggleNight }) {
       <S.List>
           <PoseGroup animateOnMount={true}>
             {users.map(({ name, img, username, message, time }, index) => {
-              const clickable = ['thekitze', 'sizzyapp', 'twizzleapp', 'jsui_app'].includes(username);
+              const clickable = ['thekitze', 'sizzyapp', 'twizzle_app', 'jsui_app'].includes(username);
               return (
                 <S.Message.Wrap
                   {...(clickable && {
