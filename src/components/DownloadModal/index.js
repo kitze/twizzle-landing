@@ -126,7 +126,7 @@ const DownloadModal = ({ onClose }) => {
                 <S.Button
                   style={{ textDecoration: 'none', textAlign: 'center' }}
                   onClick={() => {
-                    window.location.href = REACT_APP_DOWNLOAD_LINK;
+                    window.open('https://github.com/kitze/twizzle/releases', '_blank')
                     clickedDownload.setTrue();
                   }}
                   disabled={!enableDownload}
